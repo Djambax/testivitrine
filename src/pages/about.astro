@@ -1,0 +1,400 @@
+---
+// Page À Propos - about.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const equipe = [
+  {
+    nom: "Marie-Claire Dubois",
+    poste: "Fondatrice & Directrice Générale",
+    bio: "15 ans d'expérience dans la formation professionnelle et l'entrepreneuriat. Ancienne consultante en stratégie d'entreprise, elle a accompagné plus de 200 entrepreneurs dans leurs projets.",
+    expertise: ["Stratégie d'entreprise", "Formation", "Coaching"],
+    avatar: "MCD"
+  },
+  {
+    nom: "Thomas Moreau",
+    poste: "Directeur Pédagogique",
+    bio: "Expert en ingénierie pédagogique avec 12 ans d'expérience. Spécialisé dans les nouvelles technologies éducatives et la transformation digitale des organismes de formation.",
+    expertise: ["Pédagogie", "Digital", "Innovation"],
+    avatar: "TM"
+  },
+  {
+    nom: "Sophie Laurent",
+    poste: "Responsable Développement Commercial",
+    bio: "Professionnelle aguerrie du marketing et de la communication digitale. Elle pilote notre stratégie de croissance et nos partenariats stratégiques.",
+    expertise: ["Marketing", "Communication", "Partenariats"],
+    avatar: "SL"
+  },
+  {
+    nom: "Antoine Roussel",
+    poste: "Consultant Senior Formation",
+    bio: "Formateur expert en management et leadership. Ancien directeur des ressources humaines, il maîtrise tous les enjeux du développement des compétences en entreprise.",
+    expertise: ["Management", "RH", "Leadership"],
+    avatar: "AR"
+  }
+];
+
+const chiffres = [
+  {
+    nombre: "500+",
+    description: "Entrepreneurs accompagnés",
+    icone: "👥"
+  },
+  {
+    nombre: "95%",
+    description: "Taux de satisfaction client",
+    icone: "⭐"
+  },
+  {
+    nombre: "15",
+    description: "Années d'expérience",
+    icone: "📅"
+  },
+  {
+    nombre: "50+",
+    description: "Formations au catalogue",
+    icone: "📚"
+  },
+  {
+    nombre: "98%",
+    description: "Taux de réussite aux certifications",
+    icone: "🎯"
+  },
+  {
+    nombre: "24h",
+    description: "Délai de réponse moyen",
+    icone: "⚡"
+  }
+];
+
+const certifications = [
+  {
+    nom: "Organisme de Formation Certifié",
+    description: "Déclaration d'activité enregistrée sous le numéro 11754321098",
+    annee: "2019"
+  },
+  {
+    nom: "Certification Qualiopi",
+    description: "Certification qualité pour les actions de formation",
+    annee: "2021"
+  },
+  {
+    nom: "Datadock Référencé",
+    description: "Référencement qualité par les financeurs de la formation",
+    annee: "2020"
+  },
+  {
+    nom: "Membre FFCO",
+    description: "Fédération Française des Consultants et Organismes de formation",
+    annee: "2022"
+  }
+];
+
+const valeurs = [
+  {
+    titre: "ÉTHIQUE",
+    description: "Nous privilégions la transparence et l'intégrité dans chacune de nos actions. Notre engagement envers nos clients repose sur des valeurs morales fortes et une déontologie irréprochable.",
+    icone: "🎯",
+    couleur: "from-blue-400 to-blue-600"
+  },
+  {
+    titre: "EXCELLENCE",
+    description: "La qualité est au cœur de nos préoccupations. Nous nous efforçons constamment d'offrir des formations et services d'exception qui dépassent les attentes de nos clients.",
+    icone: "⭐",
+    couleur: "from-purple-400 to-purple-600"
+  },
+  {
+    titre: "ENGAGEMENT",
+    description: "Nous nous impliquons totalement dans la réussite de chaque projet. Notre accompagnement sur mesure garantit un suivi personnalisé jusqu'à l'atteinte de vos objectifs.",
+    icone: "🤝",
+    couleur: "from-green-400 to-green-600"
+  },
+  {
+    titre: "ÉLÉGANCE",
+    description: "Le raffinement et le professionnalisme caractérisent notre approche. Nous apportons une dimension esthétique et sophistiquée à tous nos services et prestations.",
+    icone: "💎",
+    couleur: "from-yellow-400 to-yellow-600"
+  }
+];
+---
+
+<Layout title="À Propos - NOVA IMPÉRIA" description="Découvrez l'histoire, l'équipe et les valeurs de NOVA IMPÉRIA. 15 ans d'expertise au service de votre réussite professionnelle.">
+  <Header slot="header" />
+  
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <h1 class="text-4xl lg:text-5xl font-bold text-black mb-6">
+          À Propos de <span class="gradient-text">NOVA IMPÉRIA</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Depuis 15 ans, nous accompagnons entrepreneurs et entreprises dans leur développement 
+          avec passion, expertise et excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre Histoire -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="animate-on-scroll">
+          <h2 class="text-4xl font-bold text-black mb-6">Notre Histoire</h2>
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-black">NOVA IMPÉRIA</strong> est née en 2009 de la vision de Marie-Claire Dubois, 
+              consultante expérimentée qui souhaitait révolutionner l'accompagnement des entrepreneurs français. 
+              Constatant un manque criant de formations adaptées aux réalités du terrain, elle décide de créer 
+              un organisme d'un nouveau genre.
+            </p>
+            <p>
+              Dès les premiers mois, l'approche personnalisée et l'excellence des contenus font la différence. 
+              Les premiers clients, séduits par la qualité de l'accompagnement, deviennent rapidement des ambassadeurs. 
+              Le bouche-à-oreille fonctionne et NOVA IMPÉRIA grandit organiquement.
+            </p>
+            <p>
+              En 2015, l'entreprise franchit un cap important avec l'obtention de ses premières certifications qualité 
+              et l'élargissement de son équipe. L'arrivée du digital transforme également nos méthodes pédagogiques, 
+              nous permettant d'innover constamment.
+            </p>
+            <p>
+              Aujourd'hui, <strong class="text-black">NOVA IMPÉRIA</strong> est reconnue comme l'un des organismes 
+              de formation les plus innovants de France, avec plus de 500 entrepreneurs accompagnés et un taux de 
+              satisfaction exceptionnel de 95%.
+            </p>
+          </div>
+        </div>
+        
+        <div class="animate-on-scroll">
+          <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-3xl p-8">
+            <h3 class="text-2xl font-bold text-black mb-6">Notre Mission</h3>
+            <blockquote class="text-lg italic text-gray-800 mb-6">
+              "Faire de chaque projet une marque à part entière, porteuse de sens, de cohérence et de rayonnement."
+            </blockquote>
+            <p class="text-gray-700 leading-relaxed">
+              Nous croyons fermement que chaque entrepreneur porte en lui le potentiel de créer quelque chose d'exceptionnel. 
+              Notre rôle est de révéler ce potentiel, de le structurer et de l'accompagner vers l'excellence.
+            </p>
+            <div class="mt-8 space-y-4">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  ✓
+                </div>
+                <span class="text-gray-800">Accompagnement personnalisé</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  ✓
+                </div>
+                <span class="text-gray-800">Excellence pédagogique</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  ✓
+                </div>
+                <span class="text-gray-800">Innovation constante</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos Valeurs -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Nos Valeurs - Les 4E</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Quatre piliers fondamentaux qui guident chacune de nos actions et définissent notre identité
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {valeurs.map((valeur, index) => (
+          <div 
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow animate-on-scroll"
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class={`w-16 h-16 bg-gradient-to-br ${valeur.couleur} rounded-2xl flex items-center justify-center text-2xl mb-6`}>
+              {valeur.icone}
+            </div>
+            <h3 class="text-2xl font-bold text-black mb-4">{valeur.titre}</h3>
+            <p class="text-gray-600 leading-relaxed">{valeur.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre Équipe -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Notre Équipe</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Des experts passionnés et reconnus dans leur domaine, unis par la même vision de l'excellence
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {equipe.map((membre, index) => (
+          <div 
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow animate-on-scroll"
+            style={`animation-delay: ${index * 200}ms`}
+          >
+            <div class="p-8">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold text-lg mr-6">
+                  {membre.avatar}
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-black">{membre.nom}</h3>
+                  <p class="text-yellow-600 font-medium">{membre.poste}</p>
+                </div>
+              </div>
+              
+              <p class="text-gray-600 leading-relaxed mb-6">{membre.bio}</p>
+              
+              <div class="space-y-2">
+                <h4 class="font-semibold text-gray-800">Domaines d'expertise :</h4>
+                <div class="flex flex-wrap gap-2">
+                  {membre.expertise.map((exp) => (
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                      {exp}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos Chiffres Clés -->
+  <section class="py-20 bg-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold mb-4">Nos Chiffres Clés</h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Des résultats qui témoignent de notre engagement et de notre expertise
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        {chiffres.map((chiffre, index) => (
+          <div 
+            class="text-center group animate-on-scroll"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">
+              {chiffre.icone}
+            </div>
+            <div class="text-3xl font-bold text-yellow-400 mb-2 group-hover:text-yellow-300 transition-colors">
+              {chiffre.nombre}
+            </div>
+            <div class="text-sm text-gray-300 leading-tight">
+              {chiffre.description}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Labels -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Certifications & Labels</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Des reconnaissances qui garantissent la qualité et le sérieux de nos prestations
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {certifications.map((cert, index) => (
+          <div 
+            class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow animate-on-scroll"
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+              🏆
+            </div>
+            <h3 class="text-lg font-bold text-black mb-2">{cert.nom}</h3>
+            <p class="text-gray-600 text-sm mb-3 leading-relaxed">{cert.description}</p>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">
+              Depuis {cert.annee}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Futur -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-8">Notre Vision</h2>
+        <blockquote class="text-2xl italic text-gray-700 leading-relaxed mb-8">
+          "Devenir la référence européenne en matière d'accompagnement entrepreneurial, 
+          en alliant tradition française de l'excellence et innovation pédagogique."
+        </blockquote>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+              🌍
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-2">Expansion Internationale</h3>
+            <p class="text-gray-600 text-sm">Étendre notre expertise à l'échelle européenne</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+              🚀
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-2">Innovation Continue</h3>
+            <p class="text-gray-600 text-sm">Intégrer les dernières technologies éducatives</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+              🤝
+            </div>
+            <h3 class="text-lg font-semibold text-black mb-2">Impact Social</h3>
+            <p class="text-gray-600 text-sm">Contribuer à l'économie locale et durable</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-br from-yellow-400 to-yellow-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-6">
+          Rejoignez l'Aventure NOVA IMPÉRIA
+        </h2>
+        <p class="text-xl text-black mb-8 opacity-90">
+          Découvrez comment nous pouvons transformer vos ambitions en succès concrets
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/formations" class="bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+            Découvrir nos formations
+          </a>
+          <a href="/contact" class="bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

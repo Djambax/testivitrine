@@ -1,0 +1,495 @@
+---
+// Page packs - packs.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const packs = [
+  {
+    id: 1,
+    nom: "PACK LANCEMENT & ADMIN",
+    subtitle: "Démarrez votre activité de formation en toute sérénité",
+    description: "L'essentiel pour créer et structurer votre organisme de formation avec tous les aspects administratifs et juridiques.",
+    prix: "Sur devis",
+    duree: "3-6 mois",
+    couleur: "from-blue-400 to-blue-600",
+    icone: "🚀",
+    inclus: [
+      "Création OF avec options multiples/simple",
+      "Déclaration d'activité en préfecture",
+      "NDA (Numéro de Déclaration d'Activité)",
+      "Enregistrement au Répertoire Spécifique (RS)",
+      "Certification RNCP (en option)",
+      "Accompagnement Qualiopi",
+      "Gestion administrative complète",
+      "Coaching personnalisé 3 mois",
+      "Support juridique et réglementaire"
+    ],
+    avantages: [
+      "Gain de temps considérable",
+      "Expertise réglementaire",
+      "Accompagnement personnalisé",
+      "Conformité garantie"
+    ],
+    public: "Futurs organismes de formation, consultants indépendants, entreprises souhaitant créer leur centre de formation"
+  },
+  {
+    id: 2,
+    nom: "PACK COMMUNICATION",
+    subtitle: "Développez votre visibilité et attirez vos clients",
+    description: "Solution complète pour construire votre image de marque et développer votre présence digitale avec impact.",
+    prix: "Sur devis",
+    duree: "2-4 mois",
+    couleur: "from-purple-400 to-purple-600",
+    icone: "📱",
+    inclus: [
+      "Création identité visuelle complète",
+      "Logo professionnel et déclinaisons",
+      "Charte graphique détaillée",
+      "Site internet professionnel responsive",
+      "Optimisation SEO de base",
+      "Stratégie réseaux sociaux",
+      "Templates et visuels personnalisés",
+      "Campagnes publicitaires SEO/ADS",
+      "Formation aux outils digitaux"
+    ],
+    avantages: [
+      "Image professionnelle immédiate",
+      "Visibilité web optimisée",
+      "Stratégie marketing cohérente",
+      "Outils clés en main"
+    ],
+    public: "Organismes de formation, formateurs indépendants, consultants, coaches professionnels"
+  },
+  {
+    id: 3,
+    nom: "PACK GESTION COMPLÈTE",
+    subtitle: "La solution tout-en-un pour votre réussite",
+    description: "L'offre premium qui combine création, communication et gestion pour un lancement réussi et une croissance durable.",
+    prix: "Sur devis",
+    duree: "6-12 mois",
+    couleur: "from-yellow-400 to-yellow-600",
+    icone: "👑",
+    inclus: [
+      "Tout le Pack 1 - Lancement & Admin",
+      "Tout le Pack 2 - Communication",
+      "Gestion administrative continue",
+      "Gestion financière et comptable",
+      "Suivi personnalisé mensuel",
+      "Reporting et tableaux de bord",
+      "Support technique prioritaire",
+      "Veille réglementaire continue",
+      "Accompagnement développement commercial"
+    ],
+    avantages: [
+      "Solution clés en main",
+      "Accompagnement continu",
+      "Sérénité totale",
+      "Croissance accélérée"
+    ],
+    public: "Entrepreneurs ambitieux, entreprises en développement, organismes souhaitant se concentrer sur leur cœur de métier",
+    popular: true
+  }
+];
+
+const etapes = [
+  {
+    numero: "1",
+    titre: "Diagnostic",
+    description: "Analyse de vos besoins et définition de votre projet",
+    duree: "1-2 semaines"
+  },
+  {
+    numero: "2",
+    titre: "Proposition",
+    description: "Présentation d'un devis personnalisé et détaillé",
+    duree: "3-5 jours"
+  },
+  {
+    numero: "3",
+    titre: "Réalisation",
+    description: "Mise en œuvre selon le planning défini ensemble",
+    duree: "Variable"
+  },
+  {
+    numero: "4",
+    titre: "Suivi",
+    description: "Accompagnement et support post-livraison",
+    duree: "En continu"
+  }
+];
+
+const faq = [
+  {
+    question: "Quels sont les délais de réalisation ?",
+    reponse: "Les délais varient selon le pack choisi : 3-6 mois pour le Pack 1, 2-4 mois pour le Pack 2, et 6-12 mois pour le Pack 3. Un planning détaillé vous sera fourni lors de la proposition."
+  },
+  {
+    question: "Puis-je personnaliser un pack selon mes besoins ?",
+    reponse: "Absolument ! Tous nos packs sont modulables. Nous pouvons ajouter ou retirer des services selon vos besoins spécifiques et votre budget."
+  },
+  {
+    question: "Quels sont les modes de financement possibles ?",
+    reponse: "Nous proposons plusieurs options : paiement comptant avec remise, échelonnement sur la durée du projet, ou financement par votre OPCO selon votre éligibilité."
+  },
+  {
+    question: "Un accompagnement post-livraison est-il inclus ?",
+    reponse: "Oui, tous nos packs incluent un suivi post-livraison. La durée varie selon le pack : 3 mois pour le Pack 1, 6 mois pour le Pack 2, et 12 mois pour le Pack 3."
+  },
+  {
+    question: "Que se passe-t-il si je ne suis pas satisfait ?",
+    reponse: "Nous nous engageons sur la qualité de nos prestations. En cas d'insatisfaction, nous proposons des ajustements gratuits ou un remboursement partiel selon les termes du contrat."
+  }
+];
+---
+
+<Layout title="Packs Formation - Solutions Complètes NOVA IMPÉRIA" description="Découvrez nos packs complets pour créer, développer et gérer votre organisme de formation. Solutions clés en main avec accompagnement personnalisé.">
+  <Header slot="header" />
+  
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <h1 class="text-4xl lg:text-5xl font-bold text-black mb-6">
+          Nos <span class="gradient-text">Packs</span> Solutions
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Des solutions complètes et personnalisées pour créer, développer et gérer votre organisme de formation. 
+          Choisissez l'accompagnement qui correspond à vos ambitions.
+        </p>
+        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-2xl mx-auto">
+          <p class="text-yellow-800 font-medium">
+            💡 <strong>Conseil :</strong> Tous nos packs sont modulables et personnalisables selon vos besoins spécifiques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packs Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {packs.map((pack, index) => (
+          <div 
+            class={`relative card-hover bg-white rounded-3xl shadow-xl overflow-hidden ${pack.popular ? 'lg:scale-105 border-4 border-yellow-400' : ''} animate-on-scroll`}
+            style={`animation-delay: ${index * 200}ms`}
+          >
+            <!-- Badge populaire -->
+            {pack.popular && (
+              <div class="absolute top-6 right-6 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold z-10">
+                ⭐ POPULAIRE
+              </div>
+            )}
+
+            <!-- Header du pack -->
+            <div class={`bg-gradient-to-br ${pack.couleur} px-8 py-12 text-center text-white relative overflow-hidden`}>
+              <div class="absolute top-4 right-4 text-6xl opacity-20">{pack.icone}</div>
+              <div class="relative z-10">
+                <h3 class="text-2xl font-bold mb-2">{pack.nom}</h3>
+                <p class="text-white/90 mb-4 text-sm">{pack.subtitle}</p>
+                <div class="text-4xl font-bold mb-2">{pack.prix}</div>
+                <div class="text-sm text-white/80">Durée : {pack.duree}</div>
+              </div>
+            </div>
+
+            <!-- Contenu du pack -->
+            <div class="p-8">
+              <p class="text-gray-600 mb-6 leading-relaxed">{pack.description}</p>
+
+              <!-- Ce qui est inclus -->
+              <div class="mb-8">
+                <h4 class="font-bold text-gray-800 mb-4 flex items-center">
+                  <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  Ce qui est inclus :
+                </h4>
+                <ul class="space-y-3">
+                  {pack.inclus.map((item) => (
+                    <li class="flex items-start space-x-3">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span class="text-gray-700 text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Avantages clés -->
+              <div class="mb-8">
+                <h4 class="font-bold text-gray-800 mb-4 flex items-center">
+                  <svg class="w-5 h-5 text-yellow-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7"/>
+                  </svg>
+                  Avantages clés :
+                </h4>
+                <div class="grid grid-cols-2 gap-2">
+                  {pack.avantages.map((avantage) => (
+                    <span class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-xs text-center">
+                      {avantage}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Public cible -->
+              <div class="mb-8">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                  <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                  Pour qui ?
+                </h4>
+                <p class="text-gray-600 text-sm leading-relaxed">{pack.public}</p>
+              </div>
+
+              <!-- CTA -->
+              <div class="space-y-3">
+                <a 
+                  href="/contact" 
+                  class={`block w-full text-center px-6 py-4 rounded-xl font-semibold transition-all duration-200 ${
+                    pack.popular 
+                      ? 'bg-yellow-600 hover:bg-yellow-700 text-black hover:shadow-lg' 
+                      : 'bg-black hover:bg-gray-800 text-white'
+                  }`}
+                >
+                  Demander un devis
+                </a>
+                <button class="block w-full text-center px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:border-yellow-500 hover:text-yellow-600 transition-colors">
+                  Plus d'informations
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comment ça marche -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Comment Ça Marche ?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Un processus simple et transparent pour concrétiser votre projet
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {etapes.map((etape, index) => (
+          <div 
+            class="text-center group animate-on-scroll"
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class="relative mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto group-hover:scale-110 transition-transform">
+                {etape.numero}
+              </div>
+              {index < etapes.length - 1 && (
+                <div class="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gray-300 -ml-10"></div>
+              )}
+            </div>
+            <h3 class="text-xl font-bold text-black mb-3 group-hover:text-yellow-600 transition-colors">
+              {etape.titre}
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              {etape.description}
+            </p>
+            <span class="text-sm text-yellow-600 font-medium">
+              {etape.duree}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi nos packs -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="animate-on-scroll">
+          <h2 class="text-4xl font-bold text-black mb-6">
+            Pourquoi Choisir Nos <span class="gradient-text">Packs</span> ?
+          </h2>
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                ⏱️
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-black mb-2">Gain de temps considérable</h3>
+                <p class="text-gray-600">
+                  Évitez les démarches complexes et les erreurs coûteuses. Nous gérons tout pour vous.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                🎯
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-black mb-2">Expertise reconnue</h3>
+                <p class="text-gray-600">
+                  15 ans d'expérience dans l'accompagnement d'organismes de formation.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                🤝
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-black mb-2">Accompagnement personnalisé</h3>
+                <p class="text-gray-600">
+                  Un référent dédié tout au long de votre projet pour garantir votre réussite.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                ✅
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-black mb-2">Conformité garantie</h3>
+                <p class="text-gray-600">
+                  Respect total de la réglementation et des exigences qualité (Qualiopi, etc.).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="animate-on-scroll">
+          <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-3xl p-8">
+            <h3 class="text-2xl font-bold text-black mb-6">🎁 Offre Spéciale</h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-800">Audit gratuit de votre projet</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-800">Devis personnalisé sous 48h</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-gray-800">Première consultation offerte</span>
+              </div>
+            </div>
+            <a 
+              href="/contact" 
+              class="block w-full text-center bg-yellow-600 hover:bg-yellow-700 text-black px-6 py-4 rounded-xl font-semibold mt-6 transition-colors"
+            >
+              Profiter de l'offre
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Questions Fréquentes</h2>
+        <p class="text-xl text-gray-600">
+          Retrouvez les réponses aux questions les plus courantes sur nos packs
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        {faq.map((item, index) => (
+          <div 
+            class="faq-item bg-white rounded-xl shadow-md overflow-hidden animate-on-scroll"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <h3 class="text-lg font-semibold text-black pr-8">{item.question}</h3>
+              <svg class="faq-icon w-6 h-6 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-8 pb-6">
+              <p class="text-gray-600 leading-relaxed">{item.reponse}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-black text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h2 class="text-4xl font-bold mb-6">
+          Prêt à Lancer Votre Projet ?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Discutons de vos besoins et trouvons ensemble la solution qui vous correspond.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-primary text-lg px-8 py-4">
+            Demander un devis gratuit
+          </a>
+          <a href="tel:+33123456789" class="btn-secondary text-lg px-8 py-4 !text-white !border-white hover:!bg-white hover:!text-black">
+            📞 Nous appeler
+          </a>
+        </div>
+        <p class="text-sm text-gray-400 mt-6">
+          Réponse garantie sous 24h • Devis personnalisé gratuit
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  // Gestion de la FAQ
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+      
+      question.addEventListener('click', function() {
+        const isOpen = !answer.classList.contains('hidden');
+        
+        // Fermer toutes les autres FAQ
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.faq-answer').classList.add('hidden');
+            otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Toggle la FAQ actuelle
+        if (isOpen) {
+          answer.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          answer.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  });
+</script>

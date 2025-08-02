@@ -1,0 +1,477 @@
+---
+// Page formations - formations.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Données des formations
+const formationsData = {
+  "business": [
+    {
+      id: 1,
+      title: "Création d'entreprise : de l'idée au lancement",
+      description: "Transformez votre idée en projet viable avec notre accompagnement complet",
+      duree: "21h",
+      format: "Présentiel",
+      niveau: "Débutant",
+      prix: "890€",
+      image: "🚀",
+      programme: ["Étude de marché", "Business plan", "Financement", "Statuts juridiques", "Lancement"],
+      objectifs: "Acquérir toutes les compétences pour créer son entreprise avec succès"
+    },
+    {
+      id: 2,
+      title: "Business model et business plan efficace",
+      description: "Structurez votre modèle économique et rédigez un business plan convaincant",
+      duree: "14h",
+      format: "Distanciel",
+      niveau: "Intermédiaire",
+      prix: "650€",
+      image: "📋",
+      programme: ["Canvas business model", "Étude concurrentielle", "Prévisionnel financier", "Pitch deck"],
+      objectifs: "Maîtriser les outils de structuration d'un projet entrepreneurial"
+    },
+    {
+      id: 3,
+      title: "Développement stratégique et pilotage d'activité",
+      description: "Pilotez efficacement votre entreprise avec les bons indicateurs",
+      duree: "28h",
+      format: "Mixte",
+      niveau: "Avancé",
+      prix: "1150€",
+      image: "📈",
+      programme: ["Stratégie d'entreprise", "KPIs", "Tableaux de bord", "Plan d'action"],
+      objectifs: "Développer une vision stratégique et piloter sa croissance"
+    }
+  ],
+  "marketing": [
+    {
+      id: 4,
+      title: "Marketing Digital Avancé",
+      description: "Maîtrisez tous les leviers du marketing digital pour booster votre visibilité",
+      duree: "35h",
+      format: "Présentiel/Distanciel",
+      niveau: "Intermédiaire",
+      prix: "1200€",
+      image: "📱",
+      programme: ["SEO/SEA", "Social Media", "Email Marketing", "Analytics", "Automation"],
+      objectifs: "Maîtriser les leviers du marketing digital moderne"
+    },
+    {
+      id: 5,
+      title: "Communication de marque et identité visuelle",
+      description: "Créez une identité forte et cohérente pour votre marque",
+      duree: "21h",
+      format: "Présentiel",
+      niveau: "Débutant",
+      prix: "780€",
+      image: "🎨",
+      programme: ["Stratégie de marque", "Charte graphique", "Storytelling", "Communication 360°"],
+      objectifs: "Développer une identité de marque impactante et mémorable"
+    },
+    {
+      id: 6,
+      title: "Stratégie de contenu et pilotage",
+      description: "Élaborez une stratégie de contenu efficace pour engager votre audience",
+      duree: "28h",
+      format: "Distanciel",
+      niveau: "Intermédiaire",
+      prix: "950€",
+      image: "📝",
+      programme: ["Content strategy", "Planning éditorial", "Création de contenu", "Mesure de performance"],
+      objectifs: "Créer et piloter une stratégie de contenu performante"
+    }
+  ],
+  "vente": [
+    {
+      id: 7,
+      title: "Techniques de vente et négociation client",
+      description: "Développez vos compétences commerciales pour conclure plus de ventes",
+      duree: "21h",
+      format: "Présentiel",
+      niveau: "Intermédiaire",
+      prix: "890€",
+      image: "💼",
+      programme: ["Prospection", "Techniques de vente", "Négociation", "Closing", "Objections"],
+      objectifs: "Maîtriser l'art de la vente et de la négociation commerciale"
+    },
+    {
+      id: 8,
+      title: "Animation point de vente & merchandising",
+      description: "Optimisez votre point de vente pour maximiser les conversions",
+      duree: "14h",
+      format: "Présentiel",
+      niveau: "Débutant",
+      prix: "590€",
+      image: "🏪",
+      programme: ["Merchandising", "Théâtralisation", "Parcours client", "Animation commerciale"],
+      objectifs: "Créer une expérience client exceptionnelle en point de vente"
+    }
+  ],
+  "gestion": [
+    {
+      id: 9,
+      title: "Bases comptabilité pour non-comptables",
+      description: "Comprenez les fondamentaux de la comptabilité d'entreprise",
+      duree: "21h",
+      format: "Distanciel",
+      niveau: "Débutant",
+      prix: "650€",
+      image: "📊",
+      programme: ["Bilan", "Compte de résultat", "TVA", "Charges", "Déclarations"],
+      objectifs: "Acquérir les bases essentielles de la gestion comptable"
+    },
+    {
+      id: 10,
+      title: "Suivi trésorerie & gestion budgétaire",
+      description: "Pilotez efficacement la trésorerie et les budgets de votre entreprise",
+      duree: "14h",
+      format: "Présentiel",
+      niveau: "Intermédiaire",
+      prix: "720€",
+      image: "💰",
+      programme: ["Plan de trésorerie", "Budget prévisionnel", "Contrôle de gestion", "Ratios financiers"],
+      objectifs: "Maîtriser les outils de pilotage financier"
+    }
+  ],
+  "management": [
+    {
+      id: 11,
+      title: "Leadership & Management d'équipe",
+      description: "Développez vos compétences managériales et votre leadership",
+      duree: "28h",
+      format: "Mixte",
+      niveau: "Intermédiaire",
+      prix: "1050€",
+      image: "👥",
+      programme: ["Leadership", "Communication", "Motivation", "Gestion conflits", "Performance"],
+      objectifs: "Développer ses compétences managériales et son leadership"
+    },
+    {
+      id: 12,
+      title: "Recruter efficacement : du besoin au choix final",
+      description: "Maîtrisez tout le processus de recrutement pour recruter les bons talents",
+      duree: "14h",
+      format: "Présentiel",
+      niveau: "Débutant",
+      prix: "680€",
+      image: "🎯",
+      programme: ["Définition du besoin", "Sourcing", "Entretiens", "Tests", "Intégration"],
+      objectifs: "Recruter efficacement et éviter les erreurs de casting"
+    }
+  ],
+  "ia": [
+    {
+      id: 13,
+      title: "Introduction à l'IA pour dirigeants",
+      description: "Découvrez les opportunités de l'IA pour votre entreprise",
+      duree: "7h",
+      format: "Distanciel",
+      niveau: "Débutant",
+      prix: "450€",
+      image: "🤖",
+      programme: ["Panorama IA", "Use cases", "ROI", "Stratégie d'adoption", "Éthique"],
+      objectifs: "Comprendre l'IA et identifier les opportunités pour son entreprise"
+    },
+    {
+      id: 14,
+      title: "ChatGPT et assistants IA en entreprise",
+      description: "Intégrez efficacement les assistants IA dans vos processus métier",
+      duree: "14h",
+      format: "Présentiel",
+      niveau: "Intermédiaire",
+      prix: "590€",
+      image: "💬",
+      programme: ["Prompting", "Cas d'usage", "Automatisation", "Sécurité", "Formation équipes"],
+      objectifs: "Maîtriser l'utilisation des assistants IA en contexte professionnel"
+    }
+  ]
+};
+
+const categories = [
+  { id: "all", label: "Toutes les formations", count: Object.values(formationsData).flat().length },
+  { id: "business", label: "Business & Entrepreneuriat", count: formationsData.business.length },
+  { id: "marketing", label: "Marketing & Communication", count: formationsData.marketing.length },
+  { id: "vente", label: "Vente & Commercial", count: formationsData.vente.length },
+  { id: "gestion", label: "Gestion d'Entreprise", count: formationsData.gestion.length },
+  { id: "management", label: "Management & RH", count: formationsData.management.length },
+  { id: "ia", label: "IA en Entreprise", count: formationsData.ia.length }
+];
+
+const allFormations = Object.values(formationsData).flat();
+---
+
+<Layout title="Formations Professionnelles - NOVA IMPÉRIA" description="Découvrez notre catalogue complet de formations professionnelles : Business, Marketing, Vente, Gestion, Management et IA. Formations certifiantes avec accompagnement personnalisé.">
+  <Header slot="header" />
+  
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <h1 class="text-4xl lg:text-5xl font-bold text-black mb-6">
+          Nos <span class="gradient-text">Formations</span> Professionnelles
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Développez vos compétences avec nos formations certifiantes. Du business à l'IA, 
+          trouvez la formation qui correspond à vos ambitions.
+        </p>
+        
+        <!-- Barre de recherche -->
+        <div class="max-w-2xl mx-auto mb-8">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="searchInput"
+              placeholder="Rechercher une formation..."
+              class="w-full px-6 py-4 text-lg border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent pl-14"
+            />
+            <svg class="absolute left-5 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtres par catégorie -->
+  <section class="py-8 bg-white border-b border-gray-200 sticky top-16 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-3 justify-center">
+        {categories.map((category) => (
+          <button 
+            class="filter-btn px-6 py-3 rounded-full border border-gray-300 text-gray-700 hover:border-yellow-500 hover:text-yellow-600 transition-colors font-medium"
+            data-filter={category.id}
+          >
+            {category.label}
+            <span class="ml-2 bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">
+              {category.count}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Grille des formations -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Compteur de résultats -->
+      <div class="mb-8">
+        <p class="text-gray-600 text-center" id="resultsCount">
+          <span id="countNumber">{allFormations.length}</span> formation(s) trouvée(s)
+        </p>
+      </div>
+
+      <!-- Grille des formations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="formationsGrid">
+        {allFormations.map((formation) => (
+          <div 
+            class="formation-card card-hover bg-white rounded-2xl shadow-lg overflow-hidden group"
+            data-category={Object.keys(formationsData).find(key => formationsData[key].includes(formation))}
+            data-title={formation.title.toLowerCase()}
+            data-description={formation.description.toLowerCase()}
+          >
+            <!-- Header de la card -->
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 px-6 py-8 text-center">
+              <div class="text-6xl mb-4">{formation.image}</div>
+              <h3 class="text-xl font-bold text-black mb-2">{formation.title}</h3>
+              <p class="text-black opacity-90 text-sm">{formation.description}</p>
+            </div>
+
+            <!-- Contenu de la card -->
+            <div class="p-6">
+              <!-- Infos de la formation -->
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-sm text-gray-600">{formation.duree}</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/>
+                  </svg>
+                  <span class="text-sm text-gray-600">{formation.format}</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                  <span class="text-sm text-gray-600">{formation.niveau}</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                  </svg>
+                  <span class="text-lg font-bold text-yellow-600">{formation.prix}</span>
+                </div>
+              </div>
+
+              <!-- Programme -->
+              <div class="mb-6">
+                <h4 class="font-semibold text-gray-800 mb-3">Programme :</h4>
+                <div class="flex flex-wrap gap-2">
+                  {formation.programme.slice(0, 3).map((module) => (
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
+                      {module}
+                    </span>
+                  ))}
+                  {formation.programme.length > 3 && (
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs">
+                      +{formation.programme.length - 3} modules
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <div class="flex space-x-3">
+                <a 
+                  href={`/formation/${formation.id}`}
+                  class="flex-1 bg-yellow-600 hover:bg-yellow-700 text-black px-4 py-3 rounded-lg font-semibold text-center transition-colors group-hover:shadow-lg"
+                >
+                  En savoir plus
+                </a>
+                <button class="px-4 py-3 border border-gray-300 rounded-lg hover:border-yellow-500 transition-colors">
+                  <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Message si aucun résultat -->
+      <div id="noResults" class="hidden text-center py-16">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Aucune formation trouvée</h3>
+        <p class="text-gray-600 mb-6">
+          Essayez avec d'autres mots-clés ou consultez toutes nos formations.
+        </p>
+        <button class="btn-primary" onclick="resetFilters()">
+          Voir toutes les formations
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-black text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h2 class="text-4xl font-bold mb-6">Vous ne trouvez pas ce que vous cherchez ?</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Nous créons des formations sur mesure adaptées à vos besoins spécifiques et à votre secteur d'activité.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-primary text-lg px-8 py-4">
+            Formation sur mesure
+          </a>
+          <a href="/packs" class="btn-secondary text-lg px-8 py-4 !text-white !border-white hover:!bg-white hover:!text-black">
+            Découvrir nos packs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  // Gestion des filtres et de la recherche
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const formationCards = document.querySelectorAll('.formation-card');
+    const resultsCount = document.getElementById('countNumber');
+    const noResults = document.getElementById('noResults');
+    const formationsGrid = document.getElementById('formationsGrid');
+
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    // Fonction pour filtrer les formations
+    function filterFormations() {
+      let visibleCount = 0;
+
+      formationCards.forEach(card => {
+        const category = card.dataset.category;
+        const title = card.dataset.title;
+        const description = card.dataset.description;
+        
+        const matchesFilter = currentFilter === 'all' || category === currentFilter;
+        const matchesSearch = currentSearch === '' || 
+          title.includes(currentSearch.toLowerCase()) || 
+          description.includes(currentSearch.toLowerCase());
+
+        if (matchesFilter && matchesSearch) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Mise à jour du compteur
+      resultsCount.textContent = visibleCount;
+
+      // Affichage du message "aucun résultat"
+      if (visibleCount === 0) {
+        formationsGrid.style.display = 'none';
+        noResults.classList.remove('hidden');
+      } else {
+        formationsGrid.style.display = 'grid';
+        noResults.classList.add('hidden');
+      }
+    }
+
+    // Gestion de la recherche
+    searchInput.addEventListener('input', function() {
+      currentSearch = this.value;
+      filterFormations();
+    });
+
+    // Gestion des filtres par catégorie
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Mise à jour du filtre actif
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-yellow-600', 'text-black', 'border-yellow-600');
+          btn.classList.add('border-gray-300', 'text-gray-700');
+        });
+        
+        this.classList.remove('border-gray-300', 'text-gray-700');
+        this.classList.add('bg-yellow-600', 'text-black', 'border-yellow-600');
+
+        currentFilter = this.dataset.filter;
+        filterFormations();
+      });
+    });
+
+    // Fonction pour réinitialiser les filtres (accessible globalement)
+    window.resetFilters = function() {
+      currentFilter = 'all';
+      currentSearch = '';
+      searchInput.value = '';
+      
+      // Réinitialiser les boutons
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-yellow-600', 'text-black', 'border-yellow-600');
+        btn.classList.add('border-gray-300', 'text-gray-700');
+      });
+      filterButtons[0].classList.remove('border-gray-300', 'text-gray-700');
+      filterButtons[0].classList.add('bg-yellow-600', 'text-black', 'border-yellow-600');
+
+      filterFormations();
+    };
+
+    // Initialiser le filtre "Toutes les formations" comme actif
+    filterButtons[0].classList.add('bg-yellow-600', 'text-black', 'border-yellow-600');
+    filterButtons[0].classList.remove('border-gray-300', 'text-gray-700');
+  });
+</script>

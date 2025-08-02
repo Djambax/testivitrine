@@ -1,0 +1,418 @@
+---
+// Page d'accueil - index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const formations = [
+  {
+    title: "Business & Entrepreneuriat",
+    description: "De l'idée au lancement, développez votre entreprise",
+    icon: "🚀",
+    link: "/formations#business"
+  },
+  {
+    title: "Marketing & Communication",
+    description: "Maîtrisez les leviers du marketing digital moderne",
+    icon: "📱",
+    link: "/formations#marketing"
+  },
+  {
+    title: "Vente & Animation Commerciale",
+    description: "Techniques de vente et relation client",
+    icon: "💼",
+    link: "/formations#vente"
+  },
+  {
+    title: "Gestion d'Entreprise & Admin",
+    description: "Organisation et gestion administrative",
+    icon: "📊",
+    link: "/formations#gestion"
+  },
+  {
+    title: "Recrutement & Management",
+    description: "Leadership et cohésion d'équipe",
+    icon: "👥",
+    link: "/formations#management"
+  },
+  {
+    title: "IA en Entreprise",
+    description: "Intégrez l'intelligence artificielle",
+    icon: "🤖",
+    link: "/formations#ia"
+  },
+  {
+    title: "Formations Sur Mesure",
+    description: "Programme personnalisé selon vos besoins",
+    icon: "⚡",
+    link: "/formations#sur-mesure"
+  }
+];
+
+const valeurs = [
+  {
+    title: "ÉTHIQUE",
+    description: "Transparence et intégrité dans chacune de nos actions",
+    icon: "🎯"
+  },
+  {
+    title: "EXCELLENCE",
+    description: "Qualité irréprochable de nos formations et services",
+    icon: "⭐"
+  },
+  {
+    title: "ENGAGEMENT",
+    description: "Accompagnement sur mesure et suivi personnalisé",
+    icon: "🤝"
+  },
+  {
+    title: "ÉLÉGANCE",
+    description: "Raffinement et professionnalisme dans nos prestations",
+    icon: "💎"
+  }
+];
+
+const avantages = [
+  {
+    title: "Accompagnement personnalisé",
+    description: "Chaque parcours est adapté à vos objectifs spécifiques",
+    icon: "👨‍🏫"
+  },
+  {
+    title: "Formateurs experts",
+    description: "Une équipe de professionnels reconnus dans leur domaine",
+    icon: "🏆"
+  },
+  {
+    title: "Certifications reconnues",
+    description: "Formations certifiantes et éligibles au financement",
+    icon: "📜"
+  },
+  {
+    title: "Suivi post-formation",
+    description: "Accompagnement continu pour garantir votre réussite",
+    icon: "🔄"
+  }
+];
+
+const temoignages = [
+  {
+    nom: "Sophie Martin",
+    entreprise: "Fondatrice de EcoDesign",
+    temoignage: "Grâce à NOVA IMPÉRIA, j'ai pu structurer mon projet et le transformer en entreprise rentable. L'accompagnement était parfait !",
+    avatar: "SM"
+  },
+  {
+    nom: "Thomas Dubois",
+    entreprise: "Directeur Marketing chez TechCorp",
+    temoignage: "La formation en marketing digital m'a permis d'acquérir des compétences concrètes immédiatement applicables. Excellent ROI !",
+    avatar: "TD"
+  },
+  {
+    nom: "Marie Rousseau",
+    entreprise: "Manager chez InnovServices",
+    temoignage: "Le module management a transformé ma façon de diriger mon équipe. Les résultats sont visibles au quotidien.",
+    avatar: "MR"
+  }
+];
+---
+
+<Layout title="NOVA IMPÉRIA - L'excellence au service de vos ambitions">
+  <Header slot="header" />
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="absolute top-20 right-10 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    <div class="absolute top-40 left-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-20 left-20 w-72 h-72 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h1 class="text-hero text-black mb-6">
+          <span class="block">NOVA IMPÉRIA</span>
+          <span class="block gradient-text">L'excellence au service</span>
+          <span class="block gradient-text">de vos ambitions</span>
+        </h1>
+        
+        <p class="text-subtitle text-gray-600 mb-8 max-w-3xl mx-auto">
+          Transformez votre projet en marque d'exception avec nos formations et accompagnements sur mesure. 
+          Nous faisons de chaque ambition une réalité porteuse de sens, de cohérence et de rayonnement.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <a href="/formations" class="btn-primary text-lg px-8 py-4">
+            Découvrir nos formations
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/contact" class="btn-secondary text-lg px-8 py-4">
+            Demander un devis
+          </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-600 mb-2">500+</div>
+            <div class="text-sm text-gray-600">Entrepreneurs formés</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-600 mb-2">95%</div>
+            <div class="text-sm text-gray-600">De satisfaction</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-600 mb-2">15</div>
+            <div class="text-sm text-gray-600">Ans d'expertise</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-600 mb-2">50+</div>
+            <div class="text-sm text-gray-600">Formations disponibles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos Domaines de Formation -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Nos Domaines de Formation</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Découvrez notre catalogue complet de formations professionnelles adaptées à vos besoins
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {formations.map((formation, index) => (
+          <a 
+            href={formation.link}
+            class="card-hover bg-white border border-gray-200 rounded-xl p-6 text-center group animate-on-scroll"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="text-4xl mb-4">{formation.icon}</div>
+            <h3 class="text-lg font-semibold text-black mb-2 group-hover:text-yellow-600 transition-colors">
+              {formation.title}
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {formation.description}
+            </p>
+            <div class="mt-4 text-yellow-600 font-medium text-sm group-hover:underline">
+              En savoir plus →
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos Valeurs (4E) -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Nos Valeurs - Les 4E</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Notre engagement repose sur quatre piliers fondamentaux qui guident chacune de nos actions
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {valeurs.map((valeur, index) => (
+          <div 
+            class="text-center group animate-on-scroll"
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+              {valeur.icon}
+            </div>
+            <h3 class="text-2xl font-bold text-black mb-4 group-hover:text-yellow-600 transition-colors">
+              {valeur.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              {valeur.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi Choisir NOVA IMPÉRIA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Pourquoi Choisir NOVA IMPÉRIA ?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Notre différence : un accompagnement d'excellence qui garantit votre réussite
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {avantages.map((avantage, index) => (
+          <div 
+            class="flex items-start space-x-4 group animate-on-scroll"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                {avantage.icon}
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-black mb-2 group-hover:text-yellow-600 transition-colors">
+                {avantage.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {avantage.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="py-20 bg-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold mb-4">Ce Que Disent Nos Clients</h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Découvrez les témoignages de ceux qui ont fait confiance à NOVA IMPÉRIA
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {temoignages.map((temoignage, index) => (
+          <div 
+            class="bg-gray-900 rounded-xl p-8 group hover:bg-gray-800 transition-colors animate-on-scroll"
+            style={`animation-delay: ${index * 200}ms`}
+          >
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold text-sm mr-4">
+                {temoignage.avatar}
+              </div>
+              <div>
+                <div class="font-semibold text-white">{temoignage.nom}</div>
+                <div class="text-yellow-400 text-sm">{temoignage.entreprise}</div>
+              </div>
+            </div>
+            <blockquote class="text-gray-300 italic leading-relaxed">
+              "{temoignage.temoignage}"
+            </blockquote>
+            <div class="flex text-yellow-400 mt-4">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-br from-yellow-400 to-yellow-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-6">
+          Prêt à Développer Vos Compétences ?
+        </h2>
+        <p class="text-xl text-black mb-8 opacity-90">
+          Rejoignez les 500+ entrepreneurs qui ont fait confiance à NOVA IMPÉRIA pour transformer leurs ambitions en succès
+        </p>
+        
+        <!-- Formulaire de contact rapide -->
+        <div class="bg-white rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl">
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input 
+                type="text" 
+                placeholder="Votre prénom"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                required
+              />
+              <input 
+                type="text" 
+                placeholder="Votre nom"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                required
+              />
+            </div>
+            <input 
+              type="email" 
+              placeholder="Votre email"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              required
+            />
+            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+              <option value="">Quel domaine vous intéresse ?</option>
+              <option value="business">Business & Entrepreneuriat</option>
+              <option value="marketing">Marketing & Communication</option>
+              <option value="vente">Vente & Animation Commerciale</option>
+              <option value="gestion">Gestion d'Entreprise</option>
+              <option value="management">Recrutement & Management</option>
+              <option value="ia">IA en Entreprise</option>
+              <option value="sur-mesure">Formation Sur Mesure</option>
+            </select>
+            <textarea 
+              placeholder="Décrivez-nous votre projet..."
+              rows="3"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent resize-none"
+            ></textarea>
+            <button 
+              type="submit"
+              class="w-full bg-black text-white py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+            >
+              Demander mon devis gratuit
+            </button>
+          </form>
+          <p class="text-xs text-gray-500 mt-4">
+            En soumettant ce formulaire, vous acceptez notre politique de confidentialité.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, #d4af37 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style>
