@@ -9,8 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.8",
+=======
+    "@headlessui/react": "^2.2.7",
+    "@tailwindcss/vite": "^4.1.11",
+    "aos": "^2.3.4",
+    "astro": "^5.12.8",
+    "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
+    "lottie-web": "^5.13.0",
+    "lucide-react": "^0.536.0",
+>>>>>>> cursor/build-nova-imperia-corporate-website-790e
     "tailwindcss": "^4.1.11"
   }
 }

@@ -1,0 +1,793 @@
+---
+// Page détail formation - [slug].astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  // Dans un vrai projet, cela viendrait d'une API ou CMS
+  const formations = ['leadership-management'];
+  
+  return formations.map(slug => ({
+    params: { slug },
+  }));
+}
+
+// Cette page serait normalement alimentée par une base de données
+// Pour la démo, nous utilisons des données statiques
+const formations = {
+  'leadership-management': {
+    title: 'Leadership et Management d\'Équipe',
+    subtitle: 'Développez votre potentiel de leader et optimisez la performance de vos équipes',
+    category: 'Management',
+    level: 'Intermédiaire',
+    format: 'Présentiel + Distanciel',
+    certification: 'Certification NOVA Leadership',
+    price: 1890,
+    duration: '3 jours (21h)',
+    image: '/formation-leadership.jpg',
+    badges: ['Populaire', 'Éligible CPF', 'Certification'],
+    
+    objectives: [
+      'Maîtriser les fondamentaux du leadership moderne',
+      'Développer ses compétences en communication managériale',
+      'Apprendre à motiver et fédérer une équipe',
+      'Gérer les conflits et situations difficiles',
+      'Mettre en place un style de management adaptatif'
+    ],
+    
+    program: [
+      {
+        module: 'Module 1 : Fondamentaux du Leadership',
+        duration: '7h',
+        topics: [
+          'Qu\'est-ce que le leadership au 21e siècle ?',
+          'Différence entre manager et leader',
+          'Les 5 styles de leadership selon Goleman',
+          'Auto-diagnostic de son style naturel',
+          'Intelligence émotionnelle et leadership'
+        ]
+      },
+      {
+        module: 'Module 2 : Communication et Influence',
+        duration: '7h',
+        topics: [
+          'Techniques de communication persuasive',
+          'L\'art de donner du feedback constructif',
+          'Conduite de réunions efficaces',
+          'Présentation et prise de parole en public',
+          'Négociation et gestion des objections'
+        ]
+      },
+      {
+        module: 'Module 3 : Gestion d\'Équipe et Performance',
+        duration: '7h',
+        topics: [
+          'Motivation et engagement des collaborateurs',
+          'Délégation efficace et responsabilisation',
+          'Gestion des conflits et médiation',
+          'Accompagnement du changement',
+          'Mesure et pilotage de la performance'
+        ]
+      }
+    ],
+    
+    targetAudience: [
+      'Managers d\'équipe confirmés ou débutants',
+      'Entrepreneurs souhaitant développer leur leadership',
+      'Cadres dirigeants en transition',
+      'Chefs de projet gérant des équipes',
+      'Futurs managers identifiés'
+    ],
+    
+    prerequisites: [
+      'Aucun prérequis technique nécessaire',
+      'Expérience en management souhaitée mais non obligatoire',
+      'Motivation à développer ses compétences relationnelles'
+    ],
+    
+    methodology: [
+      'Alternance théorie/pratique (70% pratique)',
+      'Jeux de rôles et mises en situation',
+      'Études de cas réels',
+      'Coaching individuel pendant la formation',
+      'Plan d\'action personnalisé'
+    ],
+    
+                  evaluationMethods: [
+                'Évaluation des acquis par mise en situation',
+                'Quiz de validation des connaissances',
+                'Présentation d\'un projet personnel',
+                'Certification délivrée si validation réussie'
+              ],
+    
+    trainer: {
+      name: 'Sophie Martineau',
+      title: 'Expert en Leadership & Management',
+      experience: '15 ans d\'expérience',
+      bio: 'Ancienne DRH dans des groupes internationaux, Sophie accompagne depuis 10 ans les dirigeants et managers dans leur développement. Certifiée coach ICF et formatrice experte.',
+      specialties: ['Leadership', 'Management', 'Coaching', 'RH'],
+      image: 'SM'
+    },
+    
+    practicalInfo: {
+      sessions: [
+        { dates: '15-17 Mars 2024', status: 'available', location: 'Paris' },
+        { dates: '12-14 Avril 2024', status: 'almost-full', location: 'Lyon' },
+        { dates: '18-20 Mai 2024', status: 'available', location: 'En ligne' },
+        { dates: '15-17 Juin 2024', status: 'available', location: 'Paris' }
+      ],
+      locations: [
+        'Paris 8ème - Métro Opéra',
+        'Lyon Part-Dieu',
+        'Formation 100% distancielle possible'
+      ],
+      includes: [
+        'Support de formation complet',
+        'Outils et grilles d\'évaluation',
+        'Suivi post-formation 3 mois',
+        'Accès plateforme e-learning',
+        'Certificat de réalisation'
+      ],
+      funding: [
+        'Éligible au CPF (Compte Personnel de Formation)',
+        'Prise en charge OPCO possible',
+        'Financement personnel avec facilités de paiement'
+      ]
+    },
+    
+    faq: [
+      {
+        question: 'Cette formation est-elle adaptée aux débutants ?',
+        answer: 'Absolument ! Notre approche pédagogique s\'adapte à tous les niveaux. Les débutants bénéficient d\'un accompagnement renforcé.'
+      },
+      {
+        question: 'Peut-on suivre cette formation à distance ?',
+        answer: 'Oui, nous proposons des sessions 100% distancielles avec la même qualité pédagogique et d\'interaction.'
+      },
+      {
+        question: 'Y a-t-il un suivi après la formation ?',
+        answer: 'Oui, nous assurons un suivi personnalisé de 3 mois avec accès à notre plateforme et sessions de coaching.'
+      },
+      {
+        question: 'Comment financer cette formation ?',
+        answer: 'Plusieurs options : CPF, prise en charge OPCO, financement entreprise ou personnel avec facilités de paiement.'
+      }
+    ],
+    
+    similarFormations: [
+      {
+        title: 'Communication Interpersonnelle',
+        duration: '2 jours',
+        price: 1290,
+        slug: 'communication-interpersonnelle'
+      },
+      {
+        title: 'Gestion du Stress et des Émotions',
+        duration: '2 jours',
+        price: 1190,
+        slug: 'gestion-stress-emotions'
+      },
+      {
+        title: 'Développement Personnel et Confiance',
+        duration: '3 jours',
+        price: 1690,
+        slug: 'developpement-personnel'
+      }
+    ]
+  }
+};
+
+// Dans un vrai projet, on récupérerait le slug depuis les params
+const { slug } = Astro.params;
+const formation = formations[slug] || formations['leadership-management'];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": formation.title,
+  "description": formation.subtitle,
+  "provider": {
+    "@type": "Organization",
+    "name": "NOVA IMPÉRIA"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": formation.price,
+    "priceCurrency": "EUR"
+  }
+};
+---
+
+<Layout 
+  title={`${formation.title} - Formation NOVA IMPÉRIA`}
+  description={formation.subtitle}
+>
+  <Header slot="header" />
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-20 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div data-aos="fade-right">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center space-x-2 text-sm text-blue-200 mb-6">
+            <a href="/" class="hover:text-white">Accueil</a>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            <a href="/formations" class="hover:text-white">Formations</a>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            <span class="text-white">{formation.category}</span>
+          </nav>
+          
+          <!-- Title & Subtitle -->
+          <h1 class="text-4xl lg:text-5xl font-bold font-accent mb-6 leading-tight">
+            {formation.title}
+          </h1>
+          <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+            {formation.subtitle}
+          </p>
+          
+          <!-- Badges -->
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 bg-blue-600 rounded-full text-sm font-medium">
+              {formation.level}
+            </span>
+            <span class="px-4 py-2 bg-purple-600 rounded-full text-sm font-medium">
+              {formation.format}
+            </span>
+            <span class="px-4 py-2 bg-green-600 rounded-full text-sm font-medium">
+              {formation.certification}
+            </span>
+            {formation.badges.map(badge => (
+              <span class="px-4 py-2 bg-yellow-500 text-black rounded-full text-sm font-medium">
+                {badge}
+              </span>
+            ))}
+          </div>
+          
+          <!-- Key Info -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="clock" class="w-6 h-6"></i>
+              </div>
+              <div class="text-sm text-blue-200">Durée</div>
+              <div class="font-semibold">{formation.duration}</div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="euro" class="w-6 h-6"></i>
+              </div>
+              <div class="text-sm text-blue-200">Prix</div>
+              <div class="font-semibold">{formation.price}€</div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <div class="text-sm text-blue-200">Format</div>
+              <div class="font-semibold text-sm">{formation.format}</div>
+            </div>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="btn btn-primary text-lg px-8 py-4" id="inscriptionBtn">
+              <i data-lucide="calendar-plus" class="w-5 h-5"></i>
+              <span>S'inscrire maintenant</span>
+            </button>
+            <button class="btn btn-secondary text-lg px-8 py-4" id="demoPdfBtn">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              <span>Télécharger la brochure</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Visual -->
+        <div class="relative" data-aos="fade-left">
+          <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
+            <div class="w-full h-80 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center">
+              <div class="text-center">
+                <i data-lucide="graduation-cap" class="w-24 h-24 mx-auto mb-4 opacity-80"></i>
+                <div class="text-xl font-semibold">Formation Premium</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Floating Stats -->
+          <div class="absolute -bottom-6 -left-6 bg-white text-black p-4 rounded-lg shadow-lg">
+            <div class="text-2xl font-bold text-green-600">98%</div>
+            <div class="text-sm">Taux de satisfaction</div>
+          </div>
+          <div class="absolute -top-6 -right-6 bg-white text-black p-4 rounded-lg shadow-lg">
+            <div class="text-2xl font-bold text-blue-600">500+</div>
+            <div class="text-sm">Participants formés</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs -->
+  <section class="bg-white border-b border-gray-200 sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex space-x-8 overflow-x-auto">
+        <button class="tab-link active py-4 px-2 border-b-2 border-blue-600 text-blue-600 font-medium whitespace-nowrap" data-tab="objectifs">
+          Objectifs
+        </button>
+        <button class="tab-link py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-tab="programme">
+          Programme
+        </button>
+        <button class="tab-link py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-tab="formateur">
+          Formateur
+        </button>
+        <button class="tab-link py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-tab="pratique">
+          Infos pratiques
+        </button>
+        <button class="tab-link py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-tab="faq">
+          FAQ
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Content Tabs -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          
+          <!-- Objectifs Tab -->
+          <div class="tab-content active" id="objectifs">
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+              <h2 class="text-3xl font-bold text-black mb-6">Objectifs Pédagogiques</h2>
+              <p class="text-gray-600 mb-8">
+                À l'issue de cette formation, vous serez capable de :
+              </p>
+              
+              <div class="space-y-6">
+                {formation.objectives.map((objective, index) => (
+                  <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <span class="text-blue-600 font-bold text-sm">{index + 1}</span>
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-gray-800 leading-relaxed">{objective}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Target Audience -->
+              <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-black mb-4">Public Visé</h3>
+                <ul class="space-y-3">
+                  {formation.targetAudience.map(audience => (
+                    <li class="flex items-center space-x-3">
+                      <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                      <span class="text-gray-700">{audience}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <!-- Prerequisites -->
+              <div class="mt-8">
+                <h3 class="text-xl font-bold text-black mb-4">Prérequis</h3>
+                <ul class="space-y-3">
+                  {formation.prerequisites.map(prereq => (
+                    <li class="flex items-center space-x-3">
+                      <i data-lucide="info" class="w-5 h-5 text-blue-500"></i>
+                      <span class="text-gray-700">{prereq}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Programme Tab -->
+          <div class="tab-content" id="programme">
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+              <h2 class="text-3xl font-bold text-black mb-6">Programme Détaillé</h2>
+              
+              <div class="space-y-8">
+                {formation.program.map((module, index) => (
+                  <div class="module-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay={index * 200}>
+                    <div class="flex items-center justify-between mb-4">
+                      <h3 class="text-xl font-bold text-black">{module.module}</h3>
+                      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                        {module.duration}
+                      </span>
+                    </div>
+                    
+                    <ul class="space-y-3">
+                      {module.topics.map(topic => (
+                        <li class="flex items-start space-x-3">
+                          <i data-lucide="play-circle" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                          <span class="text-gray-700 leading-relaxed">{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Methodology -->
+              <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-black mb-4">Méthodes Pédagogiques</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {formation.methodology.map(method => (
+                    <div class="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
+                      <i data-lucide="star" class="w-5 h-5 text-blue-600"></i>
+                      <span class="text-gray-700">{method}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+                             <!-- Evaluation -->
+               <div class="mt-8">
+                 <h3 class="text-xl font-bold text-black mb-4">Évaluation et Certification</h3>
+                 <div class="space-y-3">
+                   {formation.evaluationMethods.map(method => (
+                     <div class="flex items-center space-x-3">
+                       <i data-lucide="award" class="w-5 h-5 text-green-500"></i>
+                       <span class="text-gray-700">{method}</span>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+            </div>
+          </div>
+          
+          <!-- Formateur Tab -->
+          <div class="tab-content" id="formateur">
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+              <h2 class="text-3xl font-bold text-black mb-8">Votre Formateur Expert</h2>
+              
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-32 h-32 bg-gradient-primary rounded-full flex items-center justify-center text-black font-bold text-4xl">
+                    {formation.trainer.image}
+                  </div>
+                </div>
+                
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-black mb-2">{formation.trainer.name}</h3>
+                  <p class="text-blue-600 font-semibold mb-2">{formation.trainer.title}</p>
+                  <p class="text-gray-500 mb-4">{formation.trainer.experience}</p>
+                  
+                  <p class="text-gray-700 leading-relaxed mb-6">{formation.trainer.bio}</p>
+                  
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-3">Spécialités :</h4>
+                    <div class="flex flex-wrap gap-2">
+                      {formation.trainer.specialties.map(specialty => (
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pratique Tab -->
+          <div class="tab-content" id="pratique">
+            <div class="space-y-8">
+              
+              <!-- Sessions -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-black mb-6">Prochaines Sessions</h2>
+                
+                <div class="space-y-4">
+                  {formation.practicalInfo.sessions.map(session => (
+                    <div class={`p-6 rounded-xl border-2 ${
+                      session.status === 'available' ? 'border-green-200 bg-green-50' :
+                      session.status === 'almost-full' ? 'border-yellow-200 bg-yellow-50' :
+                      'border-gray-200 bg-gray-50'
+                    }`}>
+                      <div class="flex items-center justify-between">
+                        <div>
+                          <div class="font-semibold text-gray-900">{session.dates}</div>
+                          <div class="text-sm text-gray-600">{session.location}</div>
+                        </div>
+                        <div>
+                          {session.status === 'available' && (
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                              Places disponibles
+                            </span>
+                          )}
+                          {session.status === 'almost-full' && (
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
+                              Dernières places
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <!-- Includes -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-black mb-4">Ce qui est inclus</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {formation.practicalInfo.includes.map(include => (
+                    <div class="flex items-center space-x-3">
+                      <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
+                      <span class="text-gray-700">{include}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <!-- Funding -->
+              <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-black mb-4">Options de Financement</h3>
+                <div class="space-y-4">
+                  {formation.practicalInfo.funding.map(option => (
+                    <div class="flex items-start space-x-3 p-4 bg-blue-50 rounded-lg">
+                      <i data-lucide="credit-card" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                      <span class="text-gray-700">{option}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ Tab -->
+          <div class="tab-content" id="faq">
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+              <h2 class="text-3xl font-bold text-black mb-8">Questions Fréquentes</h2>
+              
+              <div class="space-y-6">
+                {formation.faq.map((item, index) => (
+                  <div class="faq-item border border-gray-200 rounded-lg" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <button class="faq-toggle w-full text-left p-6 focus:outline-none">
+                      <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-gray-900">{item.question}</h3>
+                        <i data-lucide="plus" class="w-5 h-5 text-gray-400 transform transition-transform duration-200"></i>
+                      </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                      <p class="text-gray-700 leading-relaxed">{item.answer}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-32 space-y-8">
+            
+            <!-- Inscription Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+              <div class="text-center mb-6">
+                <div class="text-4xl font-bold text-black mb-2">{formation.price}€</div>
+                <div class="text-gray-500">Formation complète</div>
+              </div>
+              
+              <button class="w-full btn btn-primary text-lg py-4 mb-4" id="sidebarInscriptionBtn">
+                <i data-lucide="calendar-plus" class="w-5 h-5"></i>
+                <span>S'inscrire</span>
+              </button>
+              
+              <button class="w-full btn btn-ghost py-3 mb-6" id="sidebarContactBtn">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <span>Nous contacter</span>
+              </button>
+              
+              <div class="space-y-4 text-sm text-gray-600">
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i>
+                  <span>Satisfaction garantie</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="users" class="w-4 h-4 text-blue-500"></i>
+                  <span>Groupes de 12 max</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <i data-lucide="headphones" class="w-4 h-4 text-purple-500"></i>
+                  <span>Support inclus 3 mois</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Similar Formations -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="text-xl font-bold text-black mb-6">Formations Similaires</h3>
+              
+              <div class="space-y-4">
+                {formation.similarFormations.map(similar => (
+                  <a href={`/formations/${similar.slug}`} class="block p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300">
+                    <h4 class="font-semibold text-gray-900 mb-2">{similar.title}</h4>
+                    <div class="flex items-center justify-between text-sm text-gray-600">
+                      <span>{similar.duration}</span>
+                      <span class="font-semibold">{similar.price}€</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Contact Expert -->
+            <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+              <div class="text-center">
+                <i data-lucide="headphones" class="w-12 h-12 mx-auto mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Besoin d'aide ?</h3>
+                <p class="text-blue-100 mb-6">
+                  Nos experts sont là pour vous conseiller
+                </p>
+                <button class="btn btn-secondary w-full" id="expertContactBtn">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                  <span>Parler à un expert</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tab Navigation
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const targetTab = this.dataset.tab;
+        
+        // Update active tab
+        tabLinks.forEach(l => {
+          l.classList.remove('active', 'border-blue-600', 'text-blue-600');
+          l.classList.add('border-transparent', 'text-gray-500');
+        });
+        this.classList.add('active', 'border-blue-600', 'text-blue-600');
+        this.classList.remove('border-transparent', 'text-gray-500');
+        
+        // Update active content
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(targetTab).classList.add('active');
+        
+        // Smooth scroll to content
+        document.getElementById(targetTab).scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+    
+    // FAQ Toggle
+    document.querySelectorAll('.faq-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const faqItem = this.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = this.querySelector('i[data-lucide="plus"], i[data-lucide="minus"]');
+        
+        const isOpen = !answer.classList.contains('hidden');
+        
+        if (isOpen) {
+          answer.classList.add('hidden');
+          icon.setAttribute('data-lucide', 'plus');
+        } else {
+          answer.classList.remove('hidden');
+          icon.setAttribute('data-lucide', 'minus');
+        }
+        
+        // Recreate icons
+        lucide.createIcons();
+      });
+    });
+    
+    // Inscription Modal/Action
+    function handleInscription() {
+      alert('Redirection vers le formulaire d\'inscription...\n\nEn production, cette action ouvrirait :\n- Un modal d\'inscription\n- Une redirection vers Calendly\n- Un formulaire de contact dédié');
+    }
+    
+    document.getElementById('inscriptionBtn')?.addEventListener('click', handleInscription);
+    document.getElementById('sidebarInscriptionBtn')?.addEventListener('click', handleInscription);
+    
+    // PDF Download
+    document.getElementById('demoPdfBtn')?.addEventListener('click', function() {
+      alert('Téléchargement de la brochure...\n\nEn production, cette action :\n- Génèrerait un PDF personnalisé\n- Déclencherait un téléchargement\n- Enverrait par email si nécessaire');
+    });
+    
+    // Contact Actions
+    function handleContact() {
+      alert('Contact avec un expert...\n\nEn production, cette action :\n- Ouvrirait un chat en direct\n- Afficherait les coordonnées\n- Proposer un rappel immédiat');
+    }
+    
+    document.getElementById('sidebarContactBtn')?.addEventListener('click', handleContact);
+    document.getElementById('expertContactBtn')?.addEventListener('click', handleContact);
+    
+    // Initialize icons
+    lucide.createIcons();
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+    animation: fadeInUp 0.4s ease-out;
+  }
+  
+  .module-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .faq-toggle:hover i {
+    transform: scale(1.1);
+  }
+  
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  }
+  
+  .aspect-w-16 > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
