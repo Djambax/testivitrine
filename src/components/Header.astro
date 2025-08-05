@@ -1,1 +1,686 @@
- 
+---
+// Header.astro - Navigation ultra-moderne premium
+---
+
+<header class="fixed top-0 w-full z-50 glass transition-all duration-300" id="navbar">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo avec animation -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center space-x-3 group">
+          <div class="relative w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+            <span class="font-accent font-bold text-xl text-black">N</span>
+            <div class="absolute inset-0 bg-gradient-primary rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          </div>
+          <div class="hidden sm:block">
+            <span class="font-accent font-bold text-2xl text-black group-hover:text-yellow-600 transition-colors">NOVA IMPÉRIA</span>
+            <div class="text-xs text-gray-500 -mt-1 font-mono">Excellence · Innovation</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Desktop avec indicateurs actifs -->
+      <div class="hidden lg:block">
+        <div class="ml-10 flex items-center space-x-1">
+          <a href="/" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="home">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="home" class="w-4 h-4"></i>
+              <span>Accueil</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <a href="/formations" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="formations">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              <span>Formations</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <a href="/packs" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="packs">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="package" class="w-4 h-4"></i>
+              <span>Packs</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <a href="/prestations" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="prestations">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="users" class="w-4 h-4"></i>
+              <span>Prestations</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <a href="/about" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="about">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="info" class="w-4 h-4"></i>
+              <span>À Propos</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+          
+          <a href="/contact" class="nav-link group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-all duration-300" data-page="contact">
+            <span class="flex items-center space-x-2">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Contact</span>
+            </span>
+            <div class="nav-indicator absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-primary transform -translate-x-1/2 transition-all duration-300 group-hover:w-full"></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Actions Desktop -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <!-- Bouton de recherche -->
+        <button 
+          class="search-trigger p-2 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 transition-all duration-300 btn-magnetic"
+          aria-label="Ouvrir la recherche"
+        >
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        
+        <!-- Toggle Dark Mode -->
+        <button 
+          class="theme-toggle p-2 rounded-lg text-gray-600 hover:text-black hover:bg-gray-100 transition-all duration-300 btn-magnetic"
+          aria-label="Changer le thème"
+        >
+          <i data-lucide="moon" class="w-5 h-5"></i>
+        </button>
+        
+        <!-- CTA Principal -->
+        <a 
+          href="/contact" 
+          class="btn btn-primary btn-magnetic"
+        >
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Demander un devis</span>
+        </a>
+      </div>
+
+      <!-- Menu Mobile Button -->
+      <div class="lg:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button p-2 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 transition-all duration-300"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Ouvrir le menu principal</span>
+          <div class="hamburger-icon relative w-6 h-6">
+            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out" style="top: 6px;"></span>
+            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out" style="top: 12px;"></span>
+            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out" style="top: 18px;"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Premium avec animations -->
+    <div class="mobile-menu hidden lg:hidden">
+      <div class="mobile-menu-content absolute top-full left-0 w-full glass border-t border-white/20 transform opacity-0 scale-y-0 origin-top transition-all duration-300 ease-out">
+        <div class="px-4 py-6 space-y-4">
+          <a href="/" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="home" class="w-5 h-5"></i>
+            <span>Accueil</span>
+          </a>
+          <a href="/formations" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            <span>Formations</span>
+          </a>
+          <a href="/packs" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="package" class="w-5 h-5"></i>
+            <span>Packs</span>
+          </a>
+          <a href="/prestations" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="users" class="w-5 h-5"></i>
+            <span>Prestations</span>
+          </a>
+          <a href="/about" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="info" class="w-5 h-5"></i>
+            <span>À Propos</span>
+          </a>
+          <a href="/contact" class="mobile-nav-link flex items-center space-x-3 px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+            <span>Contact</span>
+          </a>
+          
+          <!-- Actions Mobile -->
+          <div class="pt-4 border-t border-white/20 space-y-3">
+            <button class="search-trigger flex items-center space-x-3 w-full px-4 py-3 text-base font-medium text-gray-700 hover:text-black hover:bg-white/20 rounded-lg transition-all duration-300">
+              <i data-lucide="search" class="w-5 h-5"></i>
+              <span>Rechercher</span>
+            </button>
+            
+            <a 
+              href="/contact" 
+              class="btn btn-primary w-full justify-center"
+            >
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Demander un devis</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Search Overlay Premium -->
+<div class="search-overlay fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+  <div class="search-container max-w-3xl mx-auto px-4 pt-24">
+    <div class="search-box bg-white rounded-2xl shadow-2xl transform scale-95 transition-all duration-300">
+      <div class="relative">
+        <input 
+          type="text" 
+          placeholder="Rechercher une formation, un service..."
+          class="w-full px-6 py-6 text-lg border-none rounded-2xl focus:outline-none focus:ring-0"
+          id="searchInput"
+        />
+        <div class="absolute right-6 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+          <kbd class="px-2 py-1 text-xs bg-gray-100 rounded">ESC</kbd>
+          <button class="search-close p-1 text-gray-400 hover:text-gray-600">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Search Filters -->
+      <div class="border-t border-gray-100 px-6 py-4">
+        <div class="flex flex-wrap gap-2">
+          <button class="search-filter active px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium" data-filter="all">
+            Tout
+          </button>
+          <button class="search-filter px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="formations">
+            Formations
+          </button>
+          <button class="search-filter px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="prestations">
+            Prestations
+          </button>
+          <button class="search-filter px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="packs">
+            Packs
+          </button>
+        </div>
+      </div>
+      
+      <!-- Search Results -->
+      <div class="search-results max-h-96 overflow-y-auto border-t border-gray-100" id="searchResults">
+        <div class="p-6 text-center text-gray-500" id="searchPlaceholder">
+          <i data-lucide="search" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
+          <p>Commencez à taper pour rechercher...</p>
+        </div>
+        
+        <!-- Search Results Container -->
+        <div id="searchResultsContainer" class="hidden">
+          <!-- Results will be populated here -->
+        </div>
+        
+        <!-- No Results -->
+        <div class="hidden p-6 text-center text-gray-500" id="noResults">
+          <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
+          <p>Aucun résultat trouvé</p>
+          <p class="text-sm">Essayez avec d'autres mots-clés</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb-nav fixed top-20 left-0 w-full z-40 bg-white/80 backdrop-blur-sm border-b border-gray-100 opacity-0 invisible transition-all duration-300" id="breadcrumb">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <ol class="flex items-center space-x-2 text-sm text-gray-600">
+      <li>
+        <a href="/" class="hover:text-black flex items-center">
+          <i data-lucide="home" class="w-4 h-4 mr-1"></i>
+          Accueil
+        </a>
+      </li>
+    </ol>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Search Data - En production, cela viendrait d'une API
+    const searchData = [
+      {
+        type: 'formations',
+        title: 'Leadership et Management d\'Équipe',
+        description: 'Développez votre potentiel de leader et optimisez la performance de vos équipes',
+        url: '/formations/leadership-management',
+        price: '1890€',
+        duration: '3 jours',
+        category: 'Management',
+        keywords: ['leadership', 'management', 'équipe', 'chef', 'manager', 'direction']
+      },
+      {
+        type: 'formations',
+        title: 'Communication Interpersonnelle',
+        description: 'Maîtrisez l\'art de la communication pour améliorer vos relations professionnelles',
+        url: '/formations/communication-interpersonnelle',
+        price: '1290€',
+        duration: '2 jours',
+        category: 'Communication',
+        keywords: ['communication', 'interpersonnelle', 'relation', 'écoute', 'assertivité']
+      },
+      {
+        type: 'formations',
+        title: 'Gestion du Stress et des Émotions',
+        description: 'Apprenez à gérer votre stress et vos émotions en milieu professionnel',
+        url: '/formations/gestion-stress-emotions',
+        price: '1190€',
+        duration: '2 jours',
+        category: 'Développement Personnel',
+        keywords: ['stress', 'émotion', 'gestion', 'burn-out', 'bien-être', 'équilibre']
+      },
+      {
+        type: 'formations',
+        title: 'Négociation et Persuasion',
+        description: 'Développez vos techniques de négociation et de persuasion',
+        url: '/formations/negociation-persuasion',
+        price: '1490€',
+        duration: '2 jours',
+        category: 'Communication',
+        keywords: ['négociation', 'persuasion', 'argumentation', 'vente', 'influence']
+      },
+      {
+        type: 'prestations',
+        title: 'Coaching Individuel',
+        description: 'Accompagnement personnalisé pour votre développement professionnel',
+        url: '/prestations#coaching',
+        price: 'À partir de 150€',
+        duration: '1h30',
+        category: 'Coaching',
+        keywords: ['coaching', 'individuel', 'accompagnement', 'développement', 'personnel']
+      },
+      {
+        type: 'prestations',
+        title: 'Mentorat Professionnel',
+        description: 'Bénéficiez de l\'expérience d\'experts de votre secteur',
+        url: '/prestations#mentorat',
+        price: 'À partir de 200€',
+        duration: '2h',
+        category: 'Mentorat',
+        keywords: ['mentorat', 'mentor', 'expert', 'expérience', 'secteur']
+      },
+      {
+        type: 'packs',
+        title: 'Pack Lancement & Administration',
+        description: 'Tout ce qu\'il faut pour lancer votre activité en toute sérénité',
+        url: '/packs#lancement',
+        price: 'Sur devis',
+        duration: 'Flexible',
+        category: 'Entrepreneuriat',
+        keywords: ['lancement', 'administration', 'création', 'entreprise', 'startup']
+      },
+      {
+        type: 'packs',
+        title: 'Pack Communication',
+        description: 'Développez votre visibilité et votre stratégie de communication',
+        url: '/packs#communication',
+        price: 'Sur devis',
+        duration: 'Flexible',
+        category: 'Marketing',
+        keywords: ['communication', 'marketing', 'visibilité', 'stratégie', 'brand']
+      }
+    ];
+
+    let currentFilter = 'all';
+    
+    // Navigation Active State
+    function setActiveNavLink() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '/' && href === '/')) {
+          link.querySelector('.nav-indicator').style.width = '100%';
+          link.classList.add('text-black');
+        }
+      });
+    }
+    
+    setActiveNavLink();
+
+    // Mobile Menu Toggle avec animations
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuContent = document.querySelector('.mobile-menu-content');
+    const hamburgerLines = document.querySelectorAll('.hamburger-line');
+    
+    let isMenuOpen = false;
+
+    mobileMenuButton?.addEventListener('click', function() {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        // Ouvrir le menu
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenuContent.classList.remove('opacity-0', 'scale-y-0');
+          mobileMenuContent.classList.add('opacity-100', 'scale-y-100');
+        }, 10);
+        
+        // Animation hamburger vers X
+        hamburgerLines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+        hamburgerLines[1].style.opacity = '0';
+        hamburgerLines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+        
+        // Animation stagger des liens
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach((link, index) => {
+          setTimeout(() => {
+            link.style.opacity = '1';
+            link.style.transform = 'translateX(0)';
+          }, 100 + (index * 50));
+        });
+        
+      } else {
+        // Fermer le menu
+        mobileMenuContent.classList.remove('opacity-100', 'scale-y-100');
+        mobileMenuContent.classList.add('opacity-0', 'scale-y-0');
+        
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+        
+        // Restaurer hamburger
+        hamburgerLines[0].style.transform = 'none';
+        hamburgerLines[1].style.opacity = '1';
+        hamburgerLines[2].style.transform = 'none';
+      }
+      
+      mobileMenuButton.setAttribute('aria-expanded', isMenuOpen);
+    });
+
+    // Enhanced Search Functionality
+    const searchTriggers = document.querySelectorAll('.search-trigger');
+    const searchOverlay = document.querySelector('.search-overlay');
+    const searchClose = document.querySelector('.search-close');
+    const searchInput = document.getElementById('searchInput');
+    const searchPlaceholder = document.getElementById('searchPlaceholder');
+    const searchResultsContainer = document.getElementById('searchResultsContainer');
+    const noResults = document.getElementById('noResults');
+    const searchFilters = document.querySelectorAll('.search-filter');
+    
+    // Open search
+    searchTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        searchOverlay.classList.remove('opacity-0', 'invisible');
+        searchOverlay.querySelector('.search-box').classList.remove('scale-95');
+        searchOverlay.querySelector('.search-box').classList.add('scale-100');
+        setTimeout(() => searchInput.focus(), 100);
+      });
+    });
+    
+    // Close search
+    function closeSearch() {
+      searchOverlay.querySelector('.search-box').classList.remove('scale-100');
+      searchOverlay.querySelector('.search-box').classList.add('scale-95');
+      setTimeout(() => {
+        searchOverlay.classList.add('opacity-0', 'invisible');
+      }, 200);
+      
+      // Reset search
+      searchInput.value = '';
+      resetSearch();
+    }
+    
+    searchClose?.addEventListener('click', closeSearch);
+    searchOverlay?.addEventListener('click', function(e) {
+      if (e.target === searchOverlay) closeSearch();
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !searchOverlay.classList.contains('invisible')) {
+        closeSearch();
+      }
+    });
+
+    // Search filters
+    searchFilters.forEach(filter => {
+      filter.addEventListener('click', function() {
+        // Update active filter
+        searchFilters.forEach(f => {
+          f.classList.remove('active', 'bg-blue-100', 'text-blue-800');
+          f.classList.add('bg-gray-100', 'text-gray-700');
+        });
+        this.classList.add('active', 'bg-blue-100', 'text-blue-800');
+        this.classList.remove('bg-gray-100', 'text-gray-700');
+        
+        currentFilter = this.dataset.filter;
+        performSearch(searchInput.value);
+      });
+    });
+
+    // Search functionality
+    function performSearch(query) {
+      if (!query.trim()) {
+        resetSearch();
+        return;
+      }
+      
+      const filteredData = searchData.filter(item => {
+        // Apply type filter
+        if (currentFilter !== 'all' && item.type !== currentFilter) {
+          return false;
+        }
+        
+        // Search in title, description, and keywords
+        const searchFields = [
+          item.title.toLowerCase(),
+          item.description.toLowerCase(),
+          item.category.toLowerCase(),
+          ...item.keywords.map(k => k.toLowerCase())
+        ].join(' ');
+        
+        return searchFields.includes(query.toLowerCase());
+      });
+      
+      displayResults(filteredData, query);
+    }
+    
+    function displayResults(results, query) {
+      searchPlaceholder.classList.add('hidden');
+      
+      if (results.length === 0) {
+        searchResultsContainer.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+      }
+      
+      noResults.classList.add('hidden');
+      searchResultsContainer.classList.remove('hidden');
+      
+      const resultsHTML = results.map(result => `
+        <a href="${result.url}" class="search-result-item block p-4 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                  ${result.type === 'formations' ? 'Formation' : result.type === 'prestations' ? 'Prestation' : 'Pack'}
+                </span>
+                <span class="text-xs text-gray-500">${result.category}</span>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-1">${highlightMatch(result.title, query)}</h4>
+              <p class="text-sm text-gray-600 mb-2">${highlightMatch(result.description, query)}</p>
+              <div class="flex items-center space-x-4 text-xs text-gray-500">
+                <span class="flex items-center">
+                  <i data-lucide="clock" class="w-3 h-3 mr-1"></i>
+                  ${result.duration}
+                </span>
+                <span class="flex items-center">
+                  <i data-lucide="euro" class="w-3 h-3 mr-1"></i>
+                  ${result.price}
+                </span>
+              </div>
+            </div>
+            <div class="ml-4">
+              <i data-lucide="arrow-right" class="w-4 h-4 text-gray-400"></i>
+            </div>
+          </div>
+        </a>
+      `).join('');
+      
+      searchResultsContainer.innerHTML = resultsHTML;
+      
+      // Re-initialize icons for new content
+      lucide.createIcons();
+    }
+    
+    function highlightMatch(text, query) {
+      if (!query.trim()) return text;
+      
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<mark class="bg-yellow-200 px-1 rounded">$1</mark>');
+    }
+    
+    function resetSearch() {
+      searchPlaceholder.classList.remove('hidden');
+      searchResultsContainer.classList.add('hidden');
+      noResults.classList.add('hidden');
+    }
+    
+    // Search input listener with debounce
+    let searchTimeout;
+    searchInput?.addEventListener('input', function(e) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        performSearch(e.target.value);
+      }, 300);
+    });
+
+    // Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle?.querySelector('i');
+    
+    themeToggle?.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      themeIcon?.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      lucide.createIcons();
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      themeIcon?.setAttribute('data-lucide', 'sun');
+      lucide.createIcons();
+    }
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 100) {
+        navbar.classList.add('backdrop-blur-lg', 'bg-white/80', 'shadow-lg');
+      } else {
+        navbar.classList.remove('backdrop-blur-lg', 'bg-white/80', 'shadow-lg');
+      }
+      
+      // Auto-hide navbar on scroll down (except on mobile)
+      if (window.innerWidth > 1024) {
+        if (scrollTop > lastScrollTop && scrollTop > 200) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
+      }
+      
+      lastScrollTop = scrollTop;
+    });
+
+    // Breadcrumb Logic
+    const breadcrumb = document.getElementById('breadcrumb');
+    const currentPath = window.location.pathname;
+    
+    if (currentPath !== '/') {
+      const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+      const breadcrumbOl = breadcrumb.querySelector('ol');
+      
+      pathSegments.forEach((segment, index) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center';
+        
+        if (index > 0) {
+          const separator = document.createElement('i');
+          separator.setAttribute('data-lucide', 'chevron-right');
+          separator.className = 'w-4 h-4 mx-2 text-gray-400';
+          breadcrumbOl.appendChild(document.createElement('li')).appendChild(separator);
+        }
+        
+        const segmentName = segment.charAt(0).toUpperCase() + segment.slice(1);
+        li.innerHTML = `<span class="text-gray-900 font-medium">${segmentName}</span>`;
+        breadcrumbOl.appendChild(li);
+      });
+      
+      // Show breadcrumb after delay
+      setTimeout(() => {
+        breadcrumb.classList.remove('opacity-0', 'invisible');
+      }, 500);
+    }
+
+    // Initialize icons
+    lucide.createIcons();
+  });
+</script>
+
+<style>
+  /* Animations CSS personnalisées */
+  .mobile-nav-link {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover i {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .search-box {
+    animation: searchBoxAppear 0.3s ease-out;
+  }
+  
+  @keyframes searchBoxAppear {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1024px) {
+    .navbar {
+      transform: none !important;
+    }
+  }
+  
+  /* Dark mode styles */
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .nav-link {
+    color: #e2e8f0;
+  }
+  
+  .dark .nav-link:hover {
+    color: #ffffff;
+  }
+</style> 
