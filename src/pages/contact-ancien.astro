@@ -1,0 +1,566 @@
+---
+// Page Contact - contact.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const horaires = [
+  { jour: "Lundi", heures: "9h00 - 18h00" },
+  { jour: "Mardi", heures: "9h00 - 18h00" },
+  { jour: "Mercredi", heures: "9h00 - 18h00" },
+  { jour: "Jeudi", heures: "9h00 - 18h00" },
+  { jour: "Vendredi", heures: "9h00 - 17h00" },
+  { jour: "Samedi", heures: "Sur rendez-vous" },
+  { jour: "Dimanche", heures: "Fermé" }
+];
+
+const moyensContact = [
+  {
+    type: "Téléphone",
+    value: "+33 1 23 45 67 89",
+    description: "Du lundi au vendredi, 9h-18h",
+    icone: "📞",
+    link: "tel:+33123456789"
+  },
+  {
+    type: "Email",
+    value: "contact@nova-imperia.fr",
+    description: "Réponse sous 24h garantie",
+    icone: "✉️",
+    link: "mailto:contact@nova-imperia.fr"
+  },
+  {
+    type: "Adresse",
+    value: "123 Avenue des Entrepreneurs, 75001 Paris",
+    description: "RER A - Station Châtelet",
+    icone: "📍",
+    link: "https://maps.google.com/?q=123+Avenue+des+Entrepreneurs+Paris"
+  },
+  {
+    type: "LinkedIn",
+    value: "NOVA IMPÉRIA",
+    description: "Suivez notre actualité",
+    icone: "💼",
+    link: "https://linkedin.com/company/nova-imperia"
+  }
+];
+
+const faq = [
+  {
+    question: "Comment puis-je financer ma formation ?",
+    reponse: "Plusieurs options s'offrent à vous : CPF (Compte Personnel de Formation), financement par votre OPCO, prise en charge employeur, ou paiement personnel avec facilités. Nous vous accompagnons dans toutes vos démarches."
+  },
+  {
+    question: "Vos formations sont-elles certifiantes ?",
+    reponse: "Oui, la plupart de nos formations sont certifiantes et reconnues par l'État. Nous délivrons des attestations de fin de formation et certaines formations donnent accès à des certifications professionnelles inscrites au RNCP ou RS."
+  },
+  {
+    question: "Proposez-vous des formations en intra-entreprise ?",
+    reponse: "Absolument ! Nous intervenons directement dans vos locaux pour des formations sur mesure adaptées à vos équipes et vos enjeux spécifiques. Contactez-nous pour un devis personnalisé."
+  },
+  {
+    question: "Quel est votre délai de réponse ?",
+    reponse: "Nous nous engageons à répondre à toute demande sous 24h maximum. Pour les demandes urgentes, n'hésitez pas à nous appeler directement."
+  },
+  {
+    question: "Puis-je visiter vos locaux avant de m'inscrire ?",
+    reponse: "Bien sûr ! Nous organisons régulièrement des portes ouvertes et des visites sur rendez-vous. C'est l'occasion de rencontrer notre équipe et de découvrir nos espaces de formation."
+  }
+];
+---
+
+<Layout title="Contact - NOVA IMPÉRIA" description="Contactez NOVA IMPÉRIA pour vos projets de formation. Devis gratuit, conseil personnalisé. Téléphone, email, adresse et formulaire de contact.">
+  <Header slot="header" />
+  
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <h1 class="text-4xl lg:text-5xl font-bold text-black mb-6">
+          Contactez <span class="gradient-text">NOVA IMPÉRIA</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Une question, un projet de formation ? Notre équipe est à votre écoute pour vous accompagner 
+          dans la réalisation de vos ambitions professionnelles.
+        </p>
+        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-2xl mx-auto">
+          <p class="text-yellow-800 font-medium">
+            ⚡ <strong>Réponse garantie sous 24h</strong> • Devis gratuit et sans engagement
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Formulaire -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <!-- Formulaire de contact multi-étapes -->
+        <div class="animate-on-scroll">
+          <div class="glass p-8 rounded-2xl border border-white/20">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2 font-accent">Parlons de votre projet</h2>
+            <p class="text-gray-600 mb-8">
+              Un formulaire intelligent en 4 étapes pour mieux comprendre vos besoins
+            </p>
+            
+            <!-- Progress indicator -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-medium text-gray-500">Étape <span id="current-step">1</span> sur 4</span>
+                <span class="text-sm font-medium text-gray-500"><span id="progress-percent">25</span>%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
+              </div>
+            </div>
+            
+            <form class="space-y-6" id="multiStepForm">
+            <!-- Nom et Prénom -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">
+                  Prénom *
+                </label>
+                <input 
+                  type="text" 
+                  id="prenom"
+                  name="prenom"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="Votre prénom"
+                />
+              </div>
+              <div>
+                <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">
+                  Nom *
+                </label>
+                <input 
+                  type="text" 
+                  id="nom"
+                  name="nom"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="Votre nom"
+                />
+              </div>
+            </div>
+
+            <!-- Email et Téléphone -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Email *
+                </label>
+                <input 
+                  type="email" 
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="votre@email.com"
+                />
+              </div>
+              <div>
+                <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">
+                  Téléphone
+                </label>
+                <input 
+                  type="tel" 
+                  id="telephone"
+                  name="telephone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="01 23 45 67 89"
+                />
+              </div>
+            </div>
+
+            <!-- Entreprise et Poste -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="entreprise" class="block text-sm font-medium text-gray-700 mb-2">
+                  Entreprise
+                </label>
+                <input 
+                  type="text" 
+                  id="entreprise"
+                  name="entreprise"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="Nom de votre entreprise"
+                />
+              </div>
+              <div>
+                <label for="poste" class="block text-sm font-medium text-gray-700 mb-2">
+                  Poste/Fonction
+                </label>
+                <input 
+                  type="text" 
+                  id="poste"
+                  name="poste"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+                  placeholder="Votre fonction"
+                />
+              </div>
+            </div>
+
+            <!-- Type de demande -->
+            <div>
+              <label for="demande" class="block text-sm font-medium text-gray-700 mb-2">
+                Type de demande *
+              </label>
+              <select 
+                id="demande"
+                name="demande"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+              >
+                <option value="">Sélectionnez votre demande</option>
+                <option value="formation-individuelle">Formation individuelle</option>
+                <option value="formation-entreprise">Formation en entreprise</option>
+                <option value="pack-creation">Pack création d'OF</option>
+                <option value="pack-communication">Pack communication</option>
+                <option value="pack-complet">Pack gestion complète</option>
+                <option value="conseil">Conseil et accompagnement</option>
+                <option value="autre">Autre demande</option>
+              </select>
+            </div>
+
+            <!-- Domaine d'intérêt -->
+            <div>
+              <label for="domaine" class="block text-sm font-medium text-gray-700 mb-2">
+                Domaine d'intérêt
+              </label>
+              <select 
+                id="domaine"
+                name="domaine"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
+              >
+                <option value="">Sélectionnez un domaine</option>
+                <option value="business">Business & Entrepreneuriat</option>
+                <option value="marketing">Marketing & Communication</option>
+                <option value="vente">Vente & Animation Commerciale</option>
+                <option value="gestion">Gestion d'Entreprise & Admin</option>
+                <option value="management">Recrutement & Management</option>
+                <option value="ia">IA en Entreprise</option>
+                <option value="sur-mesure">Formation Sur Mesure</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                Votre message *
+              </label>
+              <textarea 
+                id="message"
+                name="message"
+                rows="6"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors resize-none"
+                placeholder="Décrivez-nous votre projet, vos besoins, vos objectifs..."
+              ></textarea>
+            </div>
+
+            <!-- RGPD -->
+            <div class="flex items-start space-x-3">
+              <input 
+                type="checkbox" 
+                id="rgpd"
+                name="rgpd"
+                required
+                class="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500"
+              />
+              <label for="rgpd" class="text-sm text-gray-600 leading-relaxed">
+                J'accepte que mes données personnelles soient traitées par NOVA IMPÉRIA dans le cadre de ma demande. 
+                Ces données ne seront ni vendues, ni transmises à des tiers. 
+                <a href="/politique-confidentialite" class="text-yellow-600 hover:underline">En savoir plus</a>
+              </label>
+            </div>
+
+            <!-- Newsletter (optionnel) -->
+            <div class="flex items-start space-x-3">
+              <input 
+                type="checkbox" 
+                id="newsletter"
+                name="newsletter"
+                class="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500"
+              />
+              <label for="newsletter" class="text-sm text-gray-600">
+                Je souhaite recevoir la newsletter de NOVA IMPÉRIA avec les actualités et conseils formation (optionnel)
+              </label>
+            </div>
+
+            <!-- Bouton d'envoi -->
+            <button 
+              type="submit"
+              class="w-full bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg"
+            >
+              Envoyer ma demande
+            </button>
+          </form>
+        </div>
+
+        <!-- Informations de contact -->
+        <div class="animate-on-scroll">
+          <h2 class="text-3xl font-bold text-black mb-6">Nos coordonnées</h2>
+          <p class="text-gray-600 mb-8">
+            Plusieurs moyens pour nous joindre selon vos préférences. 
+            Notre équipe est disponible pour répondre à toutes vos questions.
+          </p>
+
+          <!-- Moyens de contact -->
+          <div class="space-y-6 mb-12">
+            {moyensContact.map((contact, index) => (
+              <a 
+                href={contact.link}
+                class="flex items-start space-x-4 p-4 rounded-xl border border-gray-200 hover:border-yellow-400 hover:bg-yellow-50 transition-all group"
+                style={`animation-delay: ${index * 100}ms`}
+              >
+                <div class="text-2xl">{contact.icone}</div>
+                <div>
+                  <h3 class="font-semibold text-black group-hover:text-yellow-600 transition-colors">
+                    {contact.type}
+                  </h3>
+                  <p class="text-gray-800 font-medium">{contact.value}</p>
+                  <p class="text-gray-600 text-sm">{contact.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <!-- Horaires -->
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-black mb-4 flex items-center">
+              🕒 Nos horaires d'ouverture
+            </h3>
+            <div class="space-y-2">
+              {horaires.map((horaire) => (
+                <div class="flex justify-between">
+                  <span class="text-gray-700">{horaire.jour}</span>
+                  <span class={`font-medium ${horaire.heures === 'Fermé' ? 'text-red-600' : 'text-gray-800'}`}>
+                    {horaire.heures}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div class="mt-4 p-3 bg-yellow-100 rounded-lg">
+              <p class="text-yellow-800 text-sm">
+                💡 <strong>Conseil :</strong> Pour un rendez-vous en dehors de ces horaires, 
+                contactez-nous par email ou téléphone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan d'accès -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Comment Nous Trouver</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Nos bureaux sont situés au cœur de Paris, facilement accessibles en transport en commun
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Plan interactif -->
+        <div class="animate-on-scroll">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="aspect-video bg-gray-200 rounded-xl flex items-center justify-center mb-6">
+              <div class="text-center">
+                <div class="text-4xl mb-4">🗺️</div>
+                <p class="text-gray-600">Plan interactif</p>
+                <a 
+                  href="https://maps.google.com/?q=123+Avenue+des+Entrepreneurs+Paris"
+                  target="_blank"
+                  class="text-yellow-600 hover:underline text-sm"
+                >
+                  Ouvrir dans Google Maps
+                </a>
+              </div>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm">
+                  📍
+                </div>
+                <span class="text-gray-800">123 Avenue des Entrepreneurs, 75001 Paris</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
+                  🚇
+                </div>
+                <span class="text-gray-800">Métro Châtelet (Lignes 1, 4, 7, 11, 14) - 5 min à pied</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm">
+                  🚌
+                </div>
+                <span class="text-gray-800">Bus 21, 67, 69, 76 - Arrêt Châtelet</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                  🚗
+                </div>
+                <span class="text-gray-800">Parking Samaritaine - 200m (payant)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Informations pratiques -->
+        <div class="animate-on-scroll">
+          <h3 class="text-2xl font-bold text-black mb-6">Informations pratiques</h3>
+          
+          <div class="space-y-6">
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <h4 class="font-semibold text-black mb-3 flex items-center">
+                🏢 Accès au bâtiment
+              </h4>
+              <ul class="text-gray-600 space-y-1 text-sm">
+                <li>• Entrée principale : 123 Avenue des Entrepreneurs</li>
+                <li>• Code d'accès : fourni lors de la prise de rendez-vous</li>
+                <li>• Étage : 3ème étage, ascenseur disponible</li>
+                <li>• Accessible PMR</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <h4 class="font-semibold text-black mb-3 flex items-center">
+                🅿️ Stationnement
+              </h4>
+              <ul class="text-gray-600 space-y-1 text-sm">
+                <li>• Parking Samaritaine (payant) - 2 min à pied</li>
+                <li>• Places de stationnement rue (payant zone 1)</li>
+                <li>• Vélib' : plusieurs stations à proximité</li>
+                <li>• Parking vélo sécurisé dans l'immeuble</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <h4 class="font-semibold text-black mb-3 flex items-center">
+                ☕ À proximité
+              </h4>
+              <ul class="text-gray-600 space-y-1 text-sm">
+                <li>• Restaurants et cafés dans un rayon de 100m</li>
+                <li>• Grands magasins (Samaritaine, BHV)</li>
+                <li>• Jardin des Tuileries - 10 min à pied</li>
+                <li>• Nombreux commerces et services</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Contact -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl font-bold text-black mb-4">Questions Fréquentes</h2>
+        <p class="text-xl text-gray-600">
+          Les réponses aux questions les plus courantes de nos clients
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        {faq.map((item, index) => (
+          <div 
+            class="contact-faq-item bg-gray-50 rounded-xl overflow-hidden animate-on-scroll"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <button class="contact-faq-question w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+              <h3 class="text-lg font-semibold text-black pr-8">{item.question}</h3>
+              <svg class="contact-faq-icon w-6 h-6 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="contact-faq-answer hidden px-8 pb-6">
+              <p class="text-gray-600 leading-relaxed">{item.reponse}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  // Gestion du formulaire de contact
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Ici, vous pourriez ajouter l'envoi vers votre backend
+      // Pour la démonstration, on affiche juste un message de succès
+      
+      // Récupération des données du formulaire
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      // Simulation d'envoi (remplacer par votre logique d'envoi)
+      console.log('Données du formulaire:', data);
+      
+      // Message de succès
+      const button = form.querySelector('button[type="submit"]');
+      const originalText = button.textContent;
+      
+      button.textContent = 'Message envoyé ! ✓';
+      button.classList.remove('bg-yellow-600', 'hover:bg-yellow-700');
+      button.classList.add('bg-green-600');
+      button.disabled = true;
+      
+      // Réinitialisation après 3 secondes
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('bg-green-600');
+        button.classList.add('bg-yellow-600', 'hover:bg-yellow-700');
+        button.disabled = false;
+        form.reset();
+      }, 3000);
+    });
+
+    // Gestion de la FAQ
+    const faqItems = document.querySelectorAll('.contact-faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.contact-faq-question');
+      const answer = item.querySelector('.contact-faq-answer');
+      const icon = item.querySelector('.contact-faq-icon');
+      
+      question.addEventListener('click', function() {
+        const isOpen = !answer.classList.contains('hidden');
+        
+        // Fermer toutes les autres FAQ
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.contact-faq-answer').classList.add('hidden');
+            otherItem.querySelector('.contact-faq-icon').style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Toggle la FAQ actuelle
+        if (isOpen) {
+          answer.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          answer.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  });
+</script>

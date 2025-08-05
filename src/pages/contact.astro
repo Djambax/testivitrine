@@ -1,92 +1,100 @@
 ---
-// Page Contact - contact.astro
+// Page Contact Moderne - contact.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const horaires = [
-  { jour: "Lundi", heures: "9h00 - 18h00" },
-  { jour: "Mardi", heures: "9h00 - 18h00" },
-  { jour: "Mercredi", heures: "9h00 - 18h00" },
-  { jour: "Jeudi", heures: "9h00 - 18h00" },
-  { jour: "Vendredi", heures: "9h00 - 17h00" },
-  { jour: "Samedi", heures: "Sur rendez-vous" },
-  { jour: "Dimanche", heures: "Fermé" }
-];
-
 const moyensContact = [
   {
-    type: "Téléphone",
-    value: "+33 1 23 45 67 89",
-    description: "Du lundi au vendredi, 9h-18h",
-    icone: "📞",
-    link: "tel:+33123456789"
-  },
-  {
     type: "Email",
-    value: "contact@nova-imperia.fr",
-    description: "Réponse sous 24h garantie",
-    icone: "✉️",
-    link: "mailto:contact@nova-imperia.fr"
+    valeur: "contact@nova-imperia.fr",
+    icone: "mail",
+    link: "mailto:contact@nova-imperia.fr",
+    description: "Réponse sous 24h garantie"
   },
   {
-    type: "Adresse",
-    value: "123 Avenue des Entrepreneurs, 75001 Paris",
-    description: "RER A - Station Châtelet",
-    icone: "📍",
-    link: "https://maps.google.com/?q=123+Avenue+des+Entrepreneurs+Paris"
+    type: "Téléphone",
+    valeur: "+33 1 23 45 67 89",
+    icone: "phone",
+    link: "tel:+33123456789",
+    description: "Du lundi au vendredi, 9h-18h"
+  },
+  {
+    type: "WhatsApp",
+    valeur: "+33 6 12 34 56 78",
+    icone: "message-circle",
+    link: "https://wa.me/33612345678",
+    description: "Réponse rapide 7j/7"
   },
   {
     type: "LinkedIn",
-    value: "NOVA IMPÉRIA",
-    description: "Suivez notre actualité",
-    icone: "💼",
-    link: "https://linkedin.com/company/nova-imperia"
+    valeur: "Nova Impéria",
+    icone: "linkedin",
+    link: "https://linkedin.com/company/nova-imperia",
+    description: "Suivez notre actualité"
   }
 ];
 
-const faq = [
+const horaires = [
+  { jour: "Lundi - Vendredi", heures: "9h00 - 18h00" },
+  { jour: "Samedi", heures: "10h00 - 16h00" },
+  { jour: "Dimanche", heures: "Fermé" }
+];
+
+const faqItems = [
   {
-    question: "Comment puis-je financer ma formation ?",
-    reponse: "Plusieurs options s'offrent à vous : CPF (Compte Personnel de Formation), financement par votre OPCO, prise en charge employeur, ou paiement personnel avec facilités. Nous vous accompagnons dans toutes vos démarches."
+    question: "Combien de temps pour avoir une réponse ?",
+    reponse: "Nous nous engageons à répondre à toute demande sous 24h maximum. Pour les demandes urgentes, contactez-nous par téléphone."
   },
   {
-    question: "Vos formations sont-elles certifiantes ?",
-    reponse: "Oui, la plupart de nos formations sont certifiantes et reconnues par l'État. Nous délivrons des attestations de fin de formation et certaines formations donnent accès à des certifications professionnelles inscrites au RNCP ou RS."
+    question: "Les devis sont-ils gratuits ?",
+    reponse: "Oui, tous nos devis sont gratuits et sans engagement. Nous étudions votre projet en détail pour vous proposer une solution adaptée."
   },
   {
-    question: "Proposez-vous des formations en intra-entreprise ?",
-    reponse: "Absolument ! Nous intervenons directement dans vos locaux pour des formations sur mesure adaptées à vos équipes et vos enjeux spécifiques. Contactez-nous pour un devis personnalisé."
+    question: "Proposez-vous des formations sur mesure ?",
+    reponse: "Absolument ! Nous concevons des programmes de formation personnalisés selon vos objectifs, votre secteur et votre niveau."
   },
   {
-    question: "Quel est votre délai de réponse ?",
-    reponse: "Nous nous engageons à répondre à toute demande sous 24h maximum. Pour les demandes urgentes, n'hésitez pas à nous appeler directement."
-  },
-  {
-    question: "Puis-je visiter vos locaux avant de m'inscrire ?",
-    reponse: "Bien sûr ! Nous organisons régulièrement des portes ouvertes et des visites sur rendez-vous. C'est l'occasion de rencontrer notre équipe et de découvrir nos espaces de formation."
+    question: "Quels sont vos modes de paiement ?",
+    reponse: "Nous acceptons les virements bancaires, chèques, et proposons des facilités de paiement en plusieurs fois selon les montants."
   }
 ];
 ---
 
-<Layout title="Contact - NOVA IMPÉRIA" description="Contactez NOVA IMPÉRIA pour vos projets de formation. Devis gratuit, conseil personnalisé. Téléphone, email, adresse et formulaire de contact.">
-  <Header slot="header" />
+<Layout title="Contact - Réservez votre accompagnement | NOVA IMPÉRIA">
+  <Header />
   
   <!-- Hero Section -->
-  <section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center animate-on-scroll">
-        <h1 class="text-4xl lg:text-5xl font-bold text-black mb-6">
-          Contactez <span class="gradient-text">NOVA IMPÉRIA</span>
+  <section class="relative pt-24 pb-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+      <div class="absolute top-10 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-fade-in">
+        <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200 mb-8">
+          <i data-lucide="headphones" class="w-5 h-5 text-blue-500"></i>
+          <span class="text-sm font-medium text-gray-700">Support Premium</span>
+        </div>
+        
+        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 font-accent">
+          Contactez <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">NOVA IMPÉRIA</span>
         </h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          Une question, un projet de formation ? Notre équipe est à votre écoute pour vous accompagner 
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+          Une question, un projet de formation ? Notre équipe d'experts est à votre écoute pour vous accompagner 
           dans la réalisation de vos ambitions professionnelles.
         </p>
-        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-2xl mx-auto">
-          <p class="text-yellow-800 font-medium">
-            ⚡ <strong>Réponse garantie sous 24h</strong> • Devis gratuit et sans engagement
-          </p>
+        
+        <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-2xl p-6 max-w-2xl mx-auto">
+          <div class="flex items-center justify-center gap-4 text-blue-800">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+            <span class="font-medium">Réponse garantie sous 24h</span>
+            <span class="text-blue-400">•</span>
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+            <span class="font-medium">Devis gratuit et sans engagement</span>
+          </div>
         </div>
       </div>
     </div>
@@ -97,381 +105,431 @@ const faq = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
         
-        <!-- Formulaire de contact -->
-        <div class="animate-on-scroll">
-          <h2 class="text-3xl font-bold text-black mb-6">Envoyez-nous un message</h2>
-          <p class="text-gray-600 mb-8">
-            Remplissez ce formulaire et nous vous recontacterons dans les plus brefs délais 
-            pour échanger sur votre projet.
-          </p>
-          
-          <form class="space-y-6" id="contactForm">
-            <!-- Nom et Prénom -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">
-                  Prénom *
-                </label>
-                <input 
-                  type="text" 
-                  id="prenom"
-                  name="prenom"
-                  required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="Votre prénom"
-                />
+        <!-- Formulaire de contact multi-étapes -->
+        <div class="animate-fade-in">
+          <div class="glass p-8 rounded-2xl border border-white/20">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2 font-accent">Parlons de votre projet</h2>
+            <p class="text-gray-600 mb-8">
+              Un formulaire intelligent en 4 étapes pour mieux comprendre vos besoins
+            </p>
+            
+            <!-- Progress indicator -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-medium text-gray-500">Étape <span id="current-step">1</span> sur 4</span>
+                <span class="text-sm font-medium text-gray-500"><span id="progress-percent">25</span>%</span>
               </div>
-              <div>
-                <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">
-                  Nom *
-                </label>
-                <input 
-                  type="text" 
-                  id="nom"
-                  name="nom"
-                  required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="Votre nom"
-                />
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
               </div>
             </div>
-
-            <!-- Email et Téléphone -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
-                </label>
-                <input 
-                  type="email" 
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="votre@email.com"
-                />
+            
+            <form class="space-y-6" id="multiStepForm">
+              <!-- Step 1: Service Selection -->
+              <div class="form-step active" id="step-1">
+                <div class="text-center mb-8">
+                  <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2 font-accent">Sélectionnez votre besoin</h3>
+                  <p class="text-gray-600">Choisissez le type d'accompagnement qui vous intéresse</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <label class="service-card cursor-pointer">
+                    <input type="radio" name="service_type" value="coaching" class="sr-only" required />
+                    <div class="card p-6 text-center transition-all duration-300 border-2 border-transparent">
+                      <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user-check" class="w-6 h-6 text-white"></i>
+                      </div>
+                      <h4 class="font-bold text-gray-900 mb-2">Coaching Individuel</h4>
+                      <p class="text-sm text-gray-600">Accompagnement personnalisé 1:1</p>
+                      <div class="text-blue-600 font-medium text-sm mt-2">À partir de 150€</div>
+                    </div>
+                  </label>
+                  
+                  <label class="service-card cursor-pointer">
+                    <input type="radio" name="service_type" value="formation" class="sr-only" required />
+                    <div class="card p-6 text-center transition-all duration-300 border-2 border-transparent">
+                      <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                      </div>
+                      <h4 class="font-bold text-gray-900 mb-2">Formation</h4>
+                      <p class="text-sm text-gray-600">Programmes de formation spécialisés</p>
+                      <div class="text-green-600 font-medium text-sm mt-2">Variables selon programme</div>
+                    </div>
+                  </label>
+                  
+                  <label class="service-card cursor-pointer">
+                    <input type="radio" name="service_type" value="consulting" class="sr-only" required />
+                    <div class="card p-6 text-center transition-all duration-300 border-2 border-transparent">
+                      <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="briefcase" class="w-6 h-6 text-white"></i>
+                      </div>
+                      <h4 class="font-bold text-gray-900 mb-2">Consulting</h4>
+                      <p class="text-sm text-gray-600">Conseil stratégique et accompagnement</p>
+                      <div class="text-purple-600 font-medium text-sm mt-2">Sur devis</div>
+                    </div>
+                  </label>
+                  
+                  <label class="service-card cursor-pointer">
+                    <input type="radio" name="service_type" value="autre" class="sr-only" required />
+                    <div class="card p-6 text-center transition-all duration-300 border-2 border-transparent">
+                      <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="help-circle" class="w-6 h-6 text-white"></i>
+                      </div>
+                      <h4 class="font-bold text-gray-900 mb-2">Autre demande</h4>
+                      <p class="text-sm text-gray-600">Partenariat, média, autres projets</p>
+                      <div class="text-amber-600 font-medium text-sm mt-2">À discuter</div>
+                    </div>
+                  </label>
+                </div>
               </div>
-              <div>
-                <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">
-                  Téléphone
-                </label>
-                <input 
-                  type="tel" 
-                  id="telephone"
-                  name="telephone"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="01 23 45 67 89"
-                />
+
+              <!-- Step 2: Personal Information -->
+              <div class="form-step" id="step-2">
+                <div class="text-center mb-8">
+                  <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2 font-accent">Vos informations</h3>
+                  <p class="text-gray-600">Aidez-nous à mieux vous connaître</p>
+                </div>
+                
+                <div class="space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>Prénom *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="prenom"
+                        name="prenom"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Votre prénom"
+                      />
+                    </div>
+                    <div>
+                      <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>Nom *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="nom"
+                        name="nom"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Votre nom"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        id="email"
+                        name="email"
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="votre@email.com"
+                      />
+                    </div>
+                    <div>
+                      <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>Téléphone
+                      </label>
+                      <input 
+                        type="tel" 
+                        id="telephone"
+                        name="telephone"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="01 23 45 67 89"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="entreprise" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="building" class="w-4 h-4 inline mr-2"></i>Entreprise
+                      </label>
+                      <input 
+                        type="text" 
+                        id="entreprise"
+                        name="entreprise"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Nom de votre entreprise"
+                      />
+                    </div>
+                    <div>
+                      <label for="poste" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="briefcase" class="w-4 h-4 inline mr-2"></i>Poste/Fonction
+                      </label>
+                      <input 
+                        type="text" 
+                        id="poste"
+                        name="poste"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Votre fonction actuelle"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Entreprise et Poste -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="entreprise" class="block text-sm font-medium text-gray-700 mb-2">
-                  Entreprise
-                </label>
-                <input 
-                  type="text" 
-                  id="entreprise"
-                  name="entreprise"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="Nom de votre entreprise"
-                />
+              <!-- Step 3: Project Details -->
+              <div class="form-step" id="step-3">
+                <div class="text-center mb-8">
+                  <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="clipboard-list" class="w-8 h-8 text-white"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2 font-accent">Votre projet</h3>
+                  <p class="text-gray-600">Décrivez-nous vos besoins et objectifs</p>
+                </div>
+                
+                <div class="space-y-6">
+                  <div>
+                    <label for="sujet" class="block text-sm font-medium text-gray-700 mb-2">
+                      <i data-lucide="tag" class="w-4 h-4 inline mr-2"></i>Sujet de votre demande *
+                    </label>
+                    <input 
+                      type="text" 
+                      id="sujet"
+                      name="sujet"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                      placeholder="Résumez l'objet de votre demande"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                      <i data-lucide="message-square" class="w-4 h-4 inline mr-2"></i>Description détaillée *
+                    </label>
+                    <textarea 
+                      id="message"
+                      name="message"
+                      rows="6"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none"
+                      placeholder="Décrivez en détail votre projet, vos objectifs, votre contexte actuel..."
+                    ></textarea>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="dollar-sign" class="w-4 h-4 inline mr-2"></i>Budget estimé
+                      </label>
+                      <select 
+                        id="budget"
+                        name="budget"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                      >
+                        <option value="">Sélectionnez une fourchette</option>
+                        <option value="moins_1000">Moins de 1 000 €</option>
+                        <option value="1000_3000">1 000 € - 3 000 €</option>
+                        <option value="3000_5000">3 000 € - 5 000 €</option>
+                        <option value="5000_10000">5 000 € - 10 000 €</option>
+                        <option value="plus_10000">Plus de 10 000 €</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="echeance" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Échéance souhaitée
+                      </label>
+                      <select 
+                        id="echeance"
+                        name="echeance"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                      >
+                        <option value="">Sélectionnez une échéance</option>
+                        <option value="urgent">Urgent (dans la semaine)</option>
+                        <option value="1_mois">Dans le mois</option>
+                        <option value="3_mois">Dans les 3 mois</option>
+                        <option value="6_mois">Dans les 6 mois</option>
+                        <option value="plus_6_mois">Plus de 6 mois</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <label for="poste" class="block text-sm font-medium text-gray-700 mb-2">
-                  Poste/Fonction
-                </label>
-                <input 
-                  type="text" 
-                  id="poste"
-                  name="poste"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-                  placeholder="Votre fonction"
-                />
+
+              <!-- Step 4: Confirmation -->
+              <div class="form-step" id="step-4">
+                <div class="text-center mb-8">
+                  <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="check-circle" class="w-8 h-8 text-white"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2 font-accent">Validation</h3>
+                  <p class="text-gray-600">Vérifiez vos informations et validez votre demande</p>
+                </div>
+                
+                <div class="space-y-6">
+                  <!-- Summary will be populated by JavaScript -->
+                  <div id="form-summary" class="bg-gray-50 rounded-xl p-6">
+                    <h4 class="font-bold text-gray-900 mb-4">Récapitulatif de votre demande</h4>
+                    <div id="summary-content"></div>
+                  </div>
+
+                  <div class="space-y-4">
+                    <label class="flex items-start space-x-3">
+                      <input 
+                        type="checkbox" 
+                        name="consent_rgpd" 
+                        required
+                        class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
+                      />
+                      <span class="text-sm text-gray-600">
+                        J'accepte que mes données personnelles soient utilisées pour traiter ma demande conformément à la 
+                        <a href="#" class="text-blue-600 hover:underline">politique de confidentialité</a> *
+                      </span>
+                    </label>
+                    <label class="flex items-start space-x-3">
+                      <input 
+                        type="checkbox" 
+                        name="newsletter" 
+                        class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
+                      />
+                      <span class="text-sm text-gray-600">
+                        Je souhaite recevoir la newsletter NOVA IMPÉRIA avec actualités et conseils formation
+                      </span>
+                    </label>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Type de demande -->
-            <div>
-              <label for="demande" class="block text-sm font-medium text-gray-700 mb-2">
-                Type de demande *
-              </label>
-              <select 
-                id="demande"
-                name="demande"
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-              >
-                <option value="">Sélectionnez votre demande</option>
-                <option value="formation-individuelle">Formation individuelle</option>
-                <option value="formation-entreprise">Formation en entreprise</option>
-                <option value="pack-creation">Pack création d'OF</option>
-                <option value="pack-communication">Pack communication</option>
-                <option value="pack-complet">Pack gestion complète</option>
-                <option value="conseil">Conseil et accompagnement</option>
-                <option value="autre">Autre demande</option>
-              </select>
-            </div>
-
-            <!-- Domaine d'intérêt -->
-            <div>
-              <label for="domaine" class="block text-sm font-medium text-gray-700 mb-2">
-                Domaine d'intérêt
-              </label>
-              <select 
-                id="domaine"
-                name="domaine"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors"
-              >
-                <option value="">Sélectionnez un domaine</option>
-                <option value="business">Business & Entrepreneuriat</option>
-                <option value="marketing">Marketing & Communication</option>
-                <option value="vente">Vente & Animation Commerciale</option>
-                <option value="gestion">Gestion d'Entreprise & Admin</option>
-                <option value="management">Recrutement & Management</option>
-                <option value="ia">IA en Entreprise</option>
-                <option value="sur-mesure">Formation Sur Mesure</option>
-              </select>
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                Votre message *
-              </label>
-              <textarea 
-                id="message"
-                name="message"
-                rows="6"
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors resize-none"
-                placeholder="Décrivez-nous votre projet, vos besoins, vos objectifs..."
-              ></textarea>
-            </div>
-
-            <!-- RGPD -->
-            <div class="flex items-start space-x-3">
-              <input 
-                type="checkbox" 
-                id="rgpd"
-                name="rgpd"
-                required
-                class="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500"
-              />
-              <label for="rgpd" class="text-sm text-gray-600 leading-relaxed">
-                J'accepte que mes données personnelles soient traitées par NOVA IMPÉRIA dans le cadre de ma demande. 
-                Ces données ne seront ni vendues, ni transmises à des tiers. 
-                <a href="/politique-confidentialite" class="text-yellow-600 hover:underline">En savoir plus</a>
-              </label>
-            </div>
-
-            <!-- Newsletter (optionnel) -->
-            <div class="flex items-start space-x-3">
-              <input 
-                type="checkbox" 
-                id="newsletter"
-                name="newsletter"
-                class="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500"
-              />
-              <label for="newsletter" class="text-sm text-gray-600">
-                Je souhaite recevoir la newsletter de NOVA IMPÉRIA avec les actualités et conseils formation (optionnel)
-              </label>
-            </div>
-
-            <!-- Bouton d'envoi -->
-            <button 
-              type="submit"
-              class="w-full bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg"
-            >
-              Envoyer ma demande
-            </button>
-          </form>
+              <!-- Navigation buttons -->
+              <div class="flex justify-between mt-8">
+                <button 
+                  type="button"
+                  id="prev-btn"
+                  class="btn btn-ghost"
+                  style="display: none;"
+                >
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                  <span>Précédent</span>
+                </button>
+                
+                <div class="ml-auto">
+                  <button 
+                    type="button"
+                    id="next-btn"
+                    class="btn btn-primary"
+                  >
+                    <span>Suivant</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  </button>
+                  
+                  <button 
+                    type="submit"
+                    id="submit-btn"
+                    class="btn btn-gold"
+                    style="display: none;"
+                  >
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Envoyer ma demande</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
 
         <!-- Informations de contact -->
-        <div class="animate-on-scroll">
-          <h2 class="text-3xl font-bold text-black mb-6">Nos coordonnées</h2>
+        <div class="animate-fade-in">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 font-accent">Nos coordonnées</h2>
           <p class="text-gray-600 mb-8">
             Plusieurs moyens pour nous joindre selon vos préférences. 
             Notre équipe est disponible pour répondre à toutes vos questions.
           </p>
 
           <!-- Moyens de contact -->
-          <div class="space-y-6 mb-12">
+          <div class="space-y-4 mb-12">
             {moyensContact.map((contact, index) => (
               <a 
                 href={contact.link}
-                class="flex items-start space-x-4 p-4 rounded-xl border border-gray-200 hover:border-yellow-400 hover:bg-yellow-50 transition-all group"
+                class="flex items-center gap-4 p-4 rounded-xl border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all group card"
                 style={`animation-delay: ${index * 100}ms`}
               >
-                <div class="text-2xl">{contact.icone}</div>
-                <div>
-                  <h3 class="font-semibold text-black group-hover:text-yellow-600 transition-colors">
-                    {contact.type}
-                  </h3>
-                  <p class="text-gray-800 font-medium">{contact.value}</p>
-                  <p class="text-gray-600 text-sm">{contact.description}</p>
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i data-lucide={contact.icone} class="w-6 h-6 text-white"></i>
                 </div>
+                <div class="flex-1">
+                  <div class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{contact.type}</div>
+                  <div class="text-gray-600 text-sm">{contact.description}</div>
+                </div>
+                <div class="text-gray-900 font-medium">{contact.valeur}</div>
+                <i data-lucide="external-link" class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
               </a>
             ))}
           </div>
 
           <!-- Horaires -->
-          <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-black mb-4 flex items-center">
-              🕒 Nos horaires d'ouverture
+          <div class="card p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+              Horaires d'ouverture
             </h3>
-            <div class="space-y-2">
-              {horaires.map((horaire) => (
-                <div class="flex justify-between">
+            <div class="space-y-3">
+              {horaires.map(horaire => (
+                <div class="flex justify-between items-center">
                   <span class="text-gray-700">{horaire.jour}</span>
-                  <span class={`font-medium ${horaire.heures === 'Fermé' ? 'text-red-600' : 'text-gray-800'}`}>
-                    {horaire.heures}
-                  </span>
+                  <span class="font-medium text-gray-900">{horaire.heures}</span>
                 </div>
               ))}
             </div>
-            <div class="mt-4 p-3 bg-yellow-100 rounded-lg">
-              <p class="text-yellow-800 text-sm">
-                💡 <strong>Conseil :</strong> Pour un rendez-vous en dehors de ces horaires, 
-                contactez-nous par email ou téléphone.
-              </p>
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Plan d'accès -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll">
-        <h2 class="text-4xl font-bold text-black mb-4">Comment Nous Trouver</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Nos bureaux sont situés au cœur de Paris, facilement accessibles en transport en commun
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Plan interactif -->
-        <div class="animate-on-scroll">
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <div class="aspect-video bg-gray-200 rounded-xl flex items-center justify-center mb-6">
-              <div class="text-center">
-                <div class="text-4xl mb-4">🗺️</div>
-                <p class="text-gray-600">Plan interactif</p>
-                <a 
-                  href="https://maps.google.com/?q=123+Avenue+des+Entrepreneurs+Paris"
-                  target="_blank"
-                  class="text-yellow-600 hover:underline text-sm"
-                >
-                  Ouvrir dans Google Maps
-                </a>
-              </div>
+          <!-- Localisation -->
+          <div class="card p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-5 h-5 text-blue-600"></i>
+              Notre adresse
+            </h3>
+            <div class="space-y-2">
+              <div class="text-gray-900 font-medium">NOVA IMPÉRIA</div>
+              <div class="text-gray-600">123 Avenue des Champs-Élysées</div>
+              <div class="text-gray-600">75008 Paris, France</div>
             </div>
-            
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm">
-                  📍
-                </div>
-                <span class="text-gray-800">123 Avenue des Entrepreneurs, 75001 Paris</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
-                  🚇
-                </div>
-                <span class="text-gray-800">Métro Châtelet (Lignes 1, 4, 7, 11, 14) - 5 min à pied</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm">
-                  🚌
-                </div>
-                <span class="text-gray-800">Bus 21, 67, 69, 76 - Arrêt Châtelet</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm">
-                  🚗
-                </div>
-                <span class="text-gray-800">Parking Samaritaine - 200m (payant)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Informations pratiques -->
-        <div class="animate-on-scroll">
-          <h3 class="text-2xl font-bold text-black mb-6">Informations pratiques</h3>
-          
-          <div class="space-y-6">
-            <div class="bg-white rounded-xl p-6 shadow-md">
-              <h4 class="font-semibold text-black mb-3 flex items-center">
-                🏢 Accès au bâtiment
-              </h4>
-              <ul class="text-gray-600 space-y-1 text-sm">
-                <li>• Entrée principale : 123 Avenue des Entrepreneurs</li>
-                <li>• Code d'accès : fourni lors de la prise de rendez-vous</li>
-                <li>• Étage : 3ème étage, ascenseur disponible</li>
-                <li>• Accessible PMR</li>
-              </ul>
-            </div>
-            
-            <div class="bg-white rounded-xl p-6 shadow-md">
-              <h4 class="font-semibold text-black mb-3 flex items-center">
-                🅿️ Stationnement
-              </h4>
-              <ul class="text-gray-600 space-y-1 text-sm">
-                <li>• Parking Samaritaine (payant) - 2 min à pied</li>
-                <li>• Places de stationnement rue (payant zone 1)</li>
-                <li>• Vélib' : plusieurs stations à proximité</li>
-                <li>• Parking vélo sécurisé dans l'immeuble</li>
-              </ul>
-            </div>
-            
-            <div class="bg-white rounded-xl p-6 shadow-md">
-              <h4 class="font-semibold text-black mb-3 flex items-center">
-                ☕ À proximité
-              </h4>
-              <ul class="text-gray-600 space-y-1 text-sm">
-                <li>• Restaurants et cafés dans un rayon de 100m</li>
-                <li>• Grands magasins (Samaritaine, BHV)</li>
-                <li>• Jardin des Tuileries - 10 min à pied</li>
-                <li>• Nombreux commerces et services</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Contact -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll">
-        <h2 class="text-4xl font-bold text-black mb-4">Questions Fréquentes</h2>
-        <p class="text-xl text-gray-600">
-          Les réponses aux questions les plus courantes de nos clients
-        </p>
-      </div>
-      
-      <div class="space-y-6">
-        {faq.map((item, index) => (
-          <div 
-            class="contact-faq-item bg-gray-50 rounded-xl overflow-hidden animate-on-scroll"
-            style={`animation-delay: ${index * 100}ms`}
-          >
-            <button class="contact-faq-question w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
-              <h3 class="text-lg font-semibold text-black pr-8">{item.question}</h3>
-              <svg class="contact-faq-icon w-6 h-6 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
+            <button class="btn btn-ghost mt-4 w-full">
+              <i data-lucide="navigation" class="w-4 h-4"></i>
+              <span>Obtenir l'itinéraire</span>
             </button>
-            <div class="contact-faq-answer hidden px-8 pb-6">
-              <p class="text-gray-600 leading-relaxed">{item.reponse}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 font-accent">Questions Fréquentes</h2>
+        <p class="text-xl text-gray-600">
+          Trouvez rapidement les réponses à vos questions les plus courantes
+        </p>
+      </div>
+      
+      <div class="space-y-4">
+        {faqItems.map((faq, index) => (
+          <div class="card overflow-hidden">
+            <button 
+              class="faq-button w-full p-6 text-left flex items-center justify-between group"
+              data-faq={index}
+            >
+              <span class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">{faq.question}</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-answer px-6 pb-6 text-gray-600 hidden">
+              {faq.reponse}
             </div>
           </div>
         ))}
@@ -479,77 +537,236 @@ const faq = [
     </div>
   </section>
 
-  <Footer slot="footer" />
+  <Footer />
 </Layout>
 
-<script>
-  // Gestion du formulaire de contact
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Ici, vous pourriez ajouter l'envoi vers votre backend
-      // Pour la démonstration, on affiche juste un message de succès
-      
-      // Récupération des données du formulaire
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
-      
-      // Simulation d'envoi (remplacer par votre logique d'envoi)
-      console.log('Données du formulaire:', data);
-      
-      // Message de succès
-      const button = form.querySelector('button[type="submit"]');
-      const originalText = button.textContent;
-      
-      button.textContent = 'Message envoyé ! ✓';
-      button.classList.remove('bg-yellow-600', 'hover:bg-yellow-700');
-      button.classList.add('bg-green-600');
-      button.disabled = true;
-      
-      // Réinitialisation après 3 secondes
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.classList.remove('bg-green-600');
-        button.classList.add('bg-yellow-600', 'hover:bg-yellow-700');
-        button.disabled = false;
-        form.reset();
-      }, 3000);
-    });
+<style>
+  .form-step {
+    display: none;
+  }
+  
+  .form-step.active {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .service-card input:checked + .card {
+    border-color: rgb(59, 130, 246);
+    background: rgb(239, 246, 255);
+    transform: scale(1.02);
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+</style>
 
-    // Gestion de la FAQ
-    const faqItems = document.querySelectorAll('.contact-faq-item');
+<script>
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+  
+  // Multi-step form functionality
+  let currentStep = 1;
+  const totalSteps = 4;
+  
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const currentStepSpan = document.getElementById('current-step');
+  const progressPercent = document.getElementById('progress-percent');
+  
+  function updateProgress() {
+    const progress = (currentStep / totalSteps) * 100;
+    progressBar.style.width = `${progress}%`;
+    currentStepSpan.textContent = currentStep;
+    progressPercent.textContent = Math.round(progress);
+  }
+  
+  function showStep(step) {
+    // Hide all steps
+    document.querySelectorAll('.form-step').forEach(s => {
+      s.classList.remove('active');
+    });
     
-    faqItems.forEach(item => {
-      const question = item.querySelector('.contact-faq-question');
-      const answer = item.querySelector('.contact-faq-answer');
-      const icon = item.querySelector('.contact-faq-icon');
+    // Show current step
+    document.getElementById(`step-${step}`).classList.add('active');
+    
+    // Update navigation buttons
+    prevBtn.style.display = step === 1 ? 'none' : 'flex';
+    nextBtn.style.display = step === totalSteps ? 'none' : 'flex';
+    submitBtn.style.display = step === totalSteps ? 'flex' : 'none';
+    
+    updateProgress();
+  }
+  
+  function validateStep(step) {
+    const currentStepElement = document.getElementById(`step-${step}`);
+    const requiredFields = currentStepElement.querySelectorAll('[required]');
+    
+    for (let field of requiredFields) {
+      if (!field.value.trim()) {
+        field.focus();
+        field.classList.add('border-red-500');
+        return false;
+      } else {
+        field.classList.remove('border-red-500');
+      }
+    }
+    
+    return true;
+  }
+  
+  function updateSummary() {
+    const formData = new FormData(document.getElementById('multiStepForm'));
+    const summaryContent = document.getElementById('summary-content');
+    
+    let html = '<div class="space-y-3">';
+    
+    // Service type
+    const serviceType = formData.get('service_type');
+    if (serviceType) {
+      const serviceLabels = {
+        'coaching': 'Coaching Individuel',
+        'formation': 'Formation',
+        'consulting': 'Consulting',
+        'autre': 'Autre demande'
+      };
+      html += `<div><strong>Service :</strong> ${serviceLabels[serviceType]}</div>`;
+    }
+    
+    // Personal info
+    const prenom = formData.get('prenom');
+    const nom = formData.get('nom');
+    if (prenom && nom) {
+      html += `<div><strong>Contact :</strong> ${prenom} ${nom}</div>`;
+    }
+    
+    const email = formData.get('email');
+    if (email) {
+      html += `<div><strong>Email :</strong> ${email}</div>`;
+    }
+    
+    const entreprise = formData.get('entreprise');
+    if (entreprise) {
+      html += `<div><strong>Entreprise :</strong> ${entreprise}</div>`;
+    }
+    
+    // Project details
+    const sujet = formData.get('sujet');
+    if (sujet) {
+      html += `<div><strong>Sujet :</strong> ${sujet}</div>`;
+    }
+    
+    const budget = formData.get('budget');
+    if (budget) {
+      const budgetLabels = {
+        'moins_1000': 'Moins de 1 000 €',
+        '1000_3000': '1 000 € - 3 000 €',
+        '3000_5000': '3 000 € - 5 000 €',
+        '5000_10000': '5 000 € - 10 000 €',
+        'plus_10000': 'Plus de 10 000 €'
+      };
+      html += `<div><strong>Budget :</strong> ${budgetLabels[budget]}</div>`;
+    }
+    
+    html += '</div>';
+    summaryContent.innerHTML = html;
+  }
+  
+  // Event listeners
+  nextBtn?.addEventListener('click', () => {
+    if (validateStep(currentStep)) {
+      currentStep++;
+      showStep(currentStep);
+      if (currentStep === 4) {
+        updateSummary();
+      }
+    }
+  });
+  
+  prevBtn?.addEventListener('click', () => {
+    currentStep--;
+    showStep(currentStep);
+  });
+  
+  // Form submission
+  document.getElementById('multiStepForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success message
+    const form = e.target;
+    form.innerHTML = `
+      <div class="text-center py-12">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="check-circle" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Demande envoyée avec succès !</h3>
+        <p class="text-gray-600 mb-6">
+          Nous avons bien reçu votre demande. Notre équipe vous recontactera sous 24h maximum.
+        </p>
+        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+          <p class="text-green-800 font-medium">
+            📧 Un email de confirmation vous a été envoyé à votre adresse
+          </p>
+        </div>
+      </div>
+    `;
+    
+    // Re-initialize icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+  
+  // FAQ functionality
+  document.querySelectorAll('.faq-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('[data-lucide="chevron-down"]');
       
-      question.addEventListener('click', function() {
-        const isOpen = !answer.classList.contains('hidden');
-        
-        // Fermer toutes les autres FAQ
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.querySelector('.contact-faq-answer').classList.add('hidden');
-            otherItem.querySelector('.contact-faq-icon').style.transform = 'rotate(0deg)';
-          }
-        });
-        
-        // Toggle la FAQ actuelle
-        if (isOpen) {
-          answer.classList.add('hidden');
-          icon.style.transform = 'rotate(0deg)';
-        } else {
-          answer.classList.remove('hidden');
-          icon.style.transform = 'rotate(180deg)';
-        }
-      });
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        answer.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
     });
   });
+  
+  // Initialize first step
+  showStep(1);
 </script>

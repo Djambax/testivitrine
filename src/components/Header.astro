@@ -1,48 +1,62 @@
 ---
-// Header.astro - Navigation principale du site
+// Header.astro - Ultra-Modern Navigation with Glassmorphism
 ---
 
-<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+<header class="fixed top-0 w-full z-50 glass border-b border-white/20 transition-all duration-300" id="main-header">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
+      <!-- Premium Logo with Animation -->
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center space-x-2">
-          <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
-            <span class="text-black font-bold text-sm">N</span>
+        <a href="/" class="flex items-center space-x-3 group logo-container">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+            <i data-lucide="crown" class="w-5 h-5 text-black"></i>
           </div>
-          <span class="font-bold text-xl text-black">NOVA IMPÉRIA</span>
+          <div class="flex flex-col">
+            <span class="font-bold text-xl text-gray-900 font-accent transition-colors duration-300 group-hover:text-amber-600">NOVA IMPÉRIA</span>
+            <span class="text-xs text-gray-500 font-mono tracking-wider">Excellence & Formation</span>
+          </div>
         </a>
       </div>
 
-      <!-- Menu Desktop -->
+      <!-- Premium Desktop Navigation -->
       <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-8">
-          <a href="/" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition-colors">
-            Accueil
+        <div class="ml-10 flex items-center space-x-1">
+          <a href="/" class="nav-link group flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-gray-50/50 relative">
+            <i data-lucide="home" class="w-4 h-4 icon-bounce"></i>
+            <span>Accueil</span>
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-amber-600 group-hover:w-full transition-all duration-300"></div>
           </a>
-          <a href="/formations" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition-colors">
-            Formations
+          <a href="/formations" class="nav-link group flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-gray-50/50 relative">
+            <i data-lucide="graduation-cap" class="w-4 h-4 icon-bounce"></i>
+            <span>Formations</span>
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-amber-600 group-hover:w-full transition-all duration-300"></div>
           </a>
-          <a href="/packs" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition-colors">
-            Packs
+          <a href="/prestations" class="nav-link group flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-gray-50/50 relative">
+            <i data-lucide="briefcase" class="w-4 h-4 icon-bounce"></i>
+            <span>Prestations</span>
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-amber-600 group-hover:w-full transition-all duration-300"></div>
           </a>
-          <a href="/about" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition-colors">
-            À Propos
+          <a href="/about" class="nav-link group flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-gray-50/50 relative">
+            <i data-lucide="users" class="w-4 h-4 icon-bounce"></i>
+            <span>À Propos</span>
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-amber-600 group-hover:w-full transition-all duration-300"></div>
           </a>
-          <a href="/contact" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium transition-colors">
-            Contact
+          <a href="/contact" class="nav-link group flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-gray-50/50 relative">
+            <i data-lucide="mail" class="w-4 h-4 icon-bounce"></i>
+            <span>Contact</span>
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-amber-600 group-hover:w-full transition-all duration-300"></div>
           </a>
         </div>
       </div>
 
-      <!-- CTA Button -->
-      <div class="hidden md:block">
-        <a 
-          href="/contact" 
-          class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:shadow-lg"
-        >
-          Demander un devis
+      <!-- Premium CTA Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <button class="search-toggle p-2 rounded-lg glass border border-white/20 text-gray-600 hover:text-gray-900 transition-all duration-300 hover:scale-110">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        <a href="/prestations" class="btn btn-gold magnetic-hover">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Réserver</span>
         </a>
       </div>
 
@@ -97,6 +111,40 @@
     </div>
   </nav>
 </header>
+
+<script>
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+  
+  // Header scroll effects
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('main-header');
+    if (window.scrollY > 50) {
+      header?.classList.add('bg-white/90');
+      header?.classList.remove('glass');
+    } else {
+      header?.classList.remove('bg-white/90');
+      header?.classList.add('glass');
+    }
+  });
+  
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton?.addEventListener('click', () => {
+      const isOpen = mobileMenu?.classList.contains('show');
+      if (isOpen) {
+        mobileMenu?.classList.remove('show');
+      } else {
+        mobileMenu?.classList.add('show');
+      }
+    });
+  });
+</script>
 
 <script>
   // Toggle mobile menu

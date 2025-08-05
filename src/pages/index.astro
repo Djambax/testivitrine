@@ -120,13 +120,19 @@ const temoignages = [
 <Layout title="NOVA IMPÉRIA - L'excellence au service de vos ambitions">
   <Header slot="header" />
   
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-    <!-- Background decorative elements -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-    <div class="absolute top-20 right-10 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-    <div class="absolute top-40 left-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-    <div class="absolute bottom-20 left-20 w-72 h-72 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+  <!-- Hero Section with Premium Background -->
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <!-- Enhanced Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-300 to-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+      <div class="absolute top-40 left-10 w-96 h-96 bg-gradient-to-r from-yellow-300 to-amber-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+      <div class="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-green-300 to-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <!-- Geometric Grid Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    </div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="animate-on-scroll">
@@ -141,15 +147,15 @@ const temoignages = [
           Nous faisons de chaque ambition une réalité porteuse de sens, de cohérence et de rayonnement.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <a href="/formations" class="btn-primary text-lg px-8 py-4">
-            Découvrir nos formations
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <a href="/formations" class="btn btn-primary text-lg px-8 py-4 magnetic-hover">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            <span>Découvrir nos formations</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 icon-bounce"></i>
           </a>
-          <a href="/contact" class="btn-secondary text-lg px-8 py-4">
-            Demander un devis
+          <a href="/prestations" class="btn btn-gold text-lg px-8 py-4 magnetic-hover">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <span>Réserver un accompagnement</span>
           </a>
         </div>
         
@@ -190,18 +196,23 @@ const temoignages = [
         {formations.map((formation, index) => (
           <a 
             href={formation.link}
-            class="card-hover bg-white border border-gray-200 rounded-xl p-6 text-center group animate-on-scroll"
+            class="card group animate-slide-up cursor-pointer"
             style={`animation-delay: ${index * 100}ms`}
           >
-            <div class="text-4xl mb-4">{formation.icon}</div>
-            <h3 class="text-lg font-semibold text-black mb-2 group-hover:text-yellow-600 transition-colors">
-              {formation.title}
-            </h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              {formation.description}
-            </p>
-            <div class="mt-4 text-yellow-600 font-medium text-sm group-hover:underline">
-              En savoir plus →
+            <div class="p-6 text-center h-full flex flex-col">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <span class="text-2xl">{formation.icon}</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors font-accent">
+                {formation.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed flex-grow">
+                {formation.description}
+              </p>
+              <div class="mt-6 flex items-center justify-center gap-2 text-blue-600 font-medium text-sm group-hover:gap-3 transition-all duration-300">
+                <span>En savoir plus</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"></i>
+              </div>
             </div>
           </a>
         ))}
@@ -415,4 +426,34 @@ const temoignages = [
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+  
+  .magnetic-hover:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
 </style>
+
+<script>
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+  
+  // Animation au défilement améliorée
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fadeInUp');
+      }
+    });
+  }, observerOptions);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
